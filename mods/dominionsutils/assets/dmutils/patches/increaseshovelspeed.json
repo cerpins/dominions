@@ -1,0 +1,94 @@
+﻿[
+    {
+        "file": "game:itemtypes/tool/shovel",
+        "op": "add",
+        "path": "/miningspeedbytype",
+        "value": {
+            "shovel-granite": {
+                "soil": 9,
+                "sand": 9,
+                "gravel": 8,
+                "snow": 9
+            },
+            "shovel-peridotite": {
+                "soil": 9,
+                "sand": 9,
+                "gravel": 8,
+                "snow": 9
+            },
+            "shovel-andesite": {
+                "soil": 9,
+                "sand": 9,
+                "gravel": 8,
+                "snow": 9
+            },
+            "shovel-basalt": {
+                "soil": 9,
+                "sand": 9,
+                "gravel": 8,
+                "snow": 9
+            },
+            "shovel-obsidian": {
+                "soil": 10,
+                "sand": 10,
+                "gravel": 9,
+                "snow": 10
+            },
+
+            "shovel-flint": {
+                "soil": 10,
+                "sand": 10,
+                "gravel": 9,
+                "snow": 10
+            },
+            "shovel-copper": {
+                "soil": 12,
+                "sand": 12,
+                "gravel": 11,
+                "snow": 12
+            },
+            "shovel-bismuthbronze": {
+                "soil": 12,
+                "sand": 12,
+                "gravel": 11,
+                "snow": 12
+            },
+            "shovel-tinbronze": {
+                "soil": 12,
+                "sand": 12,
+                "gravel": 11,
+                "snow": 12
+            },
+            "shovel-gold": {
+                "soil": 12,
+                "sand": 12,
+                "gravel": 11,
+                "snow": 12
+            },
+            "shovel-silver": {
+                "soil": 12,
+                "sand": 12,
+                "gravel": 11,
+                "snow": 12
+            },
+            "shovel-blackbronze": {
+                "soil": 12,
+                "sand": 12,
+                "gravel": 11,
+                "snow": 12
+            },
+            "shovel-iron": {
+                "soil": 14,
+                "sand": 14,
+                "gravel": 13,
+                "snow": 14
+            },
+            "shovel-steel": {
+                "soil": 14,
+                "sand": 14,
+                "gravel": 13,
+                "snow": 14
+            }
+        }
+    }
+]

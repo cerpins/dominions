@@ -114,6 +114,7 @@
     <None Include="assets\dmutils\patches\hardlogneedstooltier.json" />
     <None Include="assets\dmutils\patches\hidenametag.json" />
     <None Include="assets\dmutils\patches\increasehaydrop.json" />
+    <None Include="assets\dmutils\patches\increaseshovelspeed.json" />
     <None Include="assets\dmutils\patches\preventberrydrop.json" />
     <None Include="assets\dmutils\patches\world-patch.json" />
     <None Include="assets\game\worldgen\blockpatches.json" />

@@ -36,7 +36,7 @@ namespace dmutils.src
             config.SetString("temporalStorms", "off");
             config.SetString("creatureStrength", "0.7");
             config.SetBool("microblockChiseling", true);
-            config.SetString("playerHungerSpeed", "0.6");
+            config.SetString("playerHungerSpeed", "0.45");
             config.SetString("blockGravity", "sandgravelsoil");
             config.SetString("foodSpoilSpeed", "1.2");
             config.SetString("toolMiningSpeed", "0.15");
