@@ -9,6 +9,6 @@
     "file": "game:worldgen/deposits.json",
     "op": "replace",
     "path": "/chanceMultiplier",
-    "value": 0.1
+    "value": 0.03
   }
 ]

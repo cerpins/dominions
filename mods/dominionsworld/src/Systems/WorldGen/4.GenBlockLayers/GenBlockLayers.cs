@@ -12,23 +12,23 @@ namespace dominions.world
 {
     public class GenBlockLayers : ModStdWorldGen
     {
+        private int saltWater;
+
         private ICoreServerAPI api;
 
-        List<int> BlockLayersIds = new List<int>();
-        int[] layersUnderWater = new int[0];
+        private List<int> BlockLayersIds = new List<int>();
+        private int[] layersUnderWater = new int[0];
 
-        LCGRandom rnd;
-        int mapheight;
-        ClampedSimplexNoise grassDensity;
-        ClampedSimplexNoise grassHeight;
+        private LCGRandom rnd;
+        private int mapheight;
+        private ClampedSimplexNoise grassDensity;
+        private ClampedSimplexNoise grassHeight;
 
-
-        RockStrataVariant dummyRock;
+        private RockStrataVariant dummyRock;
         public BlockLayerConfig blockLayerConfig;
 
-        SimplexNoise distort2dx;
-        SimplexNoise distort2dz;
-
+        private SimplexNoise distort2dx;
+        private SimplexNoise distort2dz;
 
         public override bool ShouldLoad(EnumAppSide side)
         {
@@ -96,6 +96,8 @@ namespace dominions.world
             grassHeight = new ClampedSimplexNoise(new double[] { 1.5 }, new double[] { 0.5 }, rnd.NextInt());
 
             mapheight = api.WorldManager.MapSizeY;
+
+            saltWater = api.World.GetBlock(new AssetLocation("saltwater-still-7")).Id;
         }
 
         private void OnChunkColumnGeneration(IServerChunk[] chunks, int chunkX, int chunkZ, ITreeAttribute chunkGenParams = null)
@@ -130,8 +132,7 @@ namespace dominions.world
             int beachBotLeft = beachMap.GetUnpaddedInt((int)(rdx * beachStep), (int)(rdz * beachStep + beachStep));
             int beachBotRight = beachMap.GetUnpaddedInt((int)(rdx * beachStep + beachStep), (int)(rdz * beachStep + beachStep));
 
-
-            // increasing x -> left to right  
+            // increasing x -> left to right
             // increasing z -> top to bottom
 
             float transitionSize = blockLayerConfig.blockLayerTransitionSize;
@@ -172,7 +173,6 @@ namespace dominions.world
                     GenBeach(x, prevY, z, chunks, rainRel, temp, beachRel, blockID);
                     PlaceTallGrass(x, prevY, z, chunks, rainRel, temp, forestRel);
 
-
                     // Try again to put layers if above sealevel and we found over 10 air blocks
                     int foundAir = 0;
                     while (posY >= TerraGenConfig.seaLevel - 1)
@@ -200,18 +200,13 @@ namespace dominions.world
                             {
                                 foundAir = 0;
                             }
-
                         }
 
                         posY--;
                     }
-
-
-
                 }
             }
         }
-
 
         private int PutLayers(double posRand, int x, int posY, int z, IServerChunk[] chunks, float rainRel, float temp, int unscaledTemp, ushort[] heightMap)
         {
@@ -231,7 +226,8 @@ namespace dominions.world
 
                 posY--;
 
-                if (blockId == GlobalConfig.waterBlockId)
+                // dominionsmod
+                if (blockId == GlobalConfig.waterBlockId || blockId == saltWater)
                 {
                     underWater = true;
                     continue;
@@ -254,9 +250,7 @@ namespace dominions.world
                         return posY;
                     }
 
-
                     chunks[chunkY].Blocks[index3d] = underWater ? layersUnderWater[j++] : BlockLayersIds[i++];
-
                 }
                 else
                 {
@@ -276,13 +270,14 @@ namespace dominions.world
                 return;
             }
 
-            if (posY == TerraGenConfig.seaLevel - 1 && beachRel > 0.5 && chunks[posY / chunksize].Blocks[(chunksize * (posY % chunksize) + z) * chunksize + x] != GlobalConfig.waterBlockId)
+            // dominionsmod
+            if (posY == TerraGenConfig.seaLevel - 1 && beachRel > 0.5 && chunks[posY / chunksize].Blocks[(chunksize * (posY % chunksize) + z) * chunksize + x] != GlobalConfig.waterBlockId && chunks[posY / chunksize].Blocks[(chunksize * (posY % chunksize) + z) * chunksize + x] != saltWater)
             {
                 chunks[posY / chunksize].Blocks[(chunksize * (posY % chunksize) + z) * chunksize + x] = sandBlockId;
             }
         }
 
-        void PlaceTallGrass(int x, int posY, int z, IServerChunk[] chunks, float rainRel, float temp, float forestRel)
+        private void PlaceTallGrass(int x, int posY, int z, IServerChunk[] chunks, float rainRel, float temp, float forestRel)
         {
             double rndVal = blockLayerConfig.Tallgrass.RndWeight * rnd.NextDouble() + blockLayerConfig.Tallgrass.PerlinWeight * grassDensity.Noise(x, z, -0.5f);
 
@@ -312,8 +307,6 @@ namespace dominions.world
             float heightRel = ((float)posY - TerraGenConfig.seaLevel) / ((float)api.WorldManager.MapSizeY - TerraGenConfig.seaLevel);
             float fertilityRel = TerraGenConfig.GetFertilityFromUnscaledTemp((int)(rainRel * 255), unscaledTemp, heightRel) / 255f;
 
-
-
             float depthf = TerraGenConfig.SoilThickness(rainRel, temperature, posY - TerraGenConfig.seaLevel, 1f);
             int depth = (int)depthf;
             depth += (int)((depthf - depth) * rnd.NextDouble());
@@ -327,7 +320,6 @@ namespace dominions.world
                 float rainDist = Math.Abs(rainRel - GameMath.Clamp(rainRel, bl.MinRain, bl.MaxRain));
                 float fertDist = Math.Abs(fertilityRel - GameMath.Clamp(fertilityRel, bl.MinFertility, bl.MaxFertility));
                 float yDist = Math.Abs((float)posY / mapheight - GameMath.Min((float)posY / mapheight, bl.MaxY));
-
 
                 if (tempDist + rainDist + fertDist + yDist <= posRand)
                 {
@@ -349,7 +341,6 @@ namespace dominions.world
                 if (BlockLayersIds.Count >= depth) break;
             }
 
-
             layersUnderWater = null;
             for (int j = 0; j < blockLayerConfig.LakeBedLayer.BlockCodeByMin.Length; j++)
             {
@@ -361,9 +352,6 @@ namespace dominions.world
                 }
             }
             if (layersUnderWater == null) layersUnderWater = new int[0];
-
         }
-
-
     }
 }

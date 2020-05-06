@@ -9,6 +9,7 @@ namespace dominions.characters
     public class Core : ModSystem
     {
         #region Config
+
         public static Dictionary<string, string[]> skinTypes = new Dictionary<string, string[]>()
         {
             ["skincolor"] = new[] { "brown", "light-brown", "olive", "yellow", "tan", "pale" },
@@ -17,10 +18,11 @@ namespace dominions.characters
             ["hairtype"] = new[] { "none", "m", "two", "three", "four", "five", "six", "seven" },
             ["facialhair"] = new[] { "none", "full", "two", "three", "four", "five", "six" },
         };
-        #endregion
 
-        ClientSkinNetwork clientSkinNetwork;
-        ServerSkinNetwork serverSkinNetwork;
+        #endregion Config
+
+        private ClientSkinNetwork clientSkinNetwork;
+        private ServerSkinNetwork serverSkinNetwork;
 
         public override void StartClientSide(ICoreClientAPI api)
         {
@@ -34,7 +36,6 @@ namespace dominions.characters
                 });
                 SetRacials(api.World.Player.Entity);
             };
-
 
             api.RegisterCommand("skin", "Opens skin change gui.", "", (int i, CmdArgs args) =>
             {
@@ -70,6 +71,7 @@ namespace dominions.characters
                 case "dwarf":
                     entityPlayer.Properties.SetEyeHeight(1.11);
                     break;
+
                 case "human":
                 default:
                     entityPlayer.Properties.SetEyeHeight(1.7);
@@ -77,5 +79,4 @@ namespace dominions.characters
             }
         }
     }
-
 }

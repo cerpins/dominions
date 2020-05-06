@@ -68,7 +68,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <None Include="assets\dominions\patches\addfirewoodrecipe.json" />
     <Content Include="assets\game\textures\block\stone\gem\amethyst.png" />
     <Content Include="assets\game\textures\block\stone\gem\bauxpearl.png" />
     <Content Include="assets\game\textures\block\stone\gem\citrine.png" />
@@ -164,66 +163,10 @@
     <Content Include="assets\game\textures\block\wood\treetrunk\willow.png" />
     <Content Include="modinfo.json" />
   </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
-    <None Include="assets\dominions\patches\addplanktexture.json" />
-    <None Include="assets\dominions\patches\addsaplinggen.json" />
-    <None Include="assets\dominions\worldgen\forests.json" />
-    <None Include="assets\dominions\worldgen\treegen\custom\araucaria.json" />
-    <None Include="assets\dominions\worldgen\treegen\custom\baobab.json" />
-    <None Include="assets\dominions\worldgen\treegen\custom\ebony.json" />
-    <None Include="assets\dominions\worldgen\treegen\custom\greatredeucalyptus.json" />
-    <None Include="assets\dominions\worldgen\treegen\custom\greatwillow.json" />
-    <None Include="assets\dominions\worldgen\treegen\custom\palm.json" />
-    <None Include="assets\dominions\worldgen\treegen\custom\redeucalyptus.json" />
-    <None Include="assets\dominions\worldgen\treegen\custom\stub.json" />
-    <None Include="assets\dominions\worldgen\treegen\custom\tallwillow.json" />
-    <None Include="assets\dominions\worldgen\treegen\custom\willow.json" />
-    <None Include="assets\dominions\worldgen\treegen\vanilla\acacia.json" />
-    <None Include="assets\dominions\worldgen\treegen\vanilla\bristleconepine.json" />
-    <None Include="assets\dominions\worldgen\treegen\vanilla\cypress.json" />
-    <None Include="assets\dominions\worldgen\treegen\vanilla\deadacacia.json" />
-    <None Include="assets\dominions\worldgen\treegen\vanilla\dwarfbirch.json" />
-    <None Include="assets\dominions\worldgen\treegen\vanilla\englishoak.json" />
-    <None Include="assets\dominions\worldgen\treegen\vanilla\fir.json" />
-    <None Include="assets\dominions\worldgen\treegen\vanilla\himalayanbirch.json" />
-    <None Include="assets\dominions\worldgen\treegen\vanilla\japanesemaple.json" />
-    <None Include="assets\dominions\worldgen\treegen\vanilla\kapok.json" />
-    <None Include="assets\dominions\worldgen\treegen\vanilla\largekapok.json" />
-    <None Include="assets\dominions\worldgen\treegen\vanilla\mountainmaple.json" />
-    <None Include="assets\dominions\worldgen\treegen\vanilla\mountainpine.json" />
-    <None Include="assets\dominions\worldgen\treegen\vanilla\norwaymaple.json" />
-    <None Include="assets\dominions\worldgen\treegen\vanilla\oldenglishoak.json" />
-    <None Include="assets\dominions\worldgen\treegen\vanilla\oldkapok.json" />
-    <None Include="assets\dominions\worldgen\treegen\vanilla\pricklymoses.json" />
-    <None Include="assets\dominions\worldgen\treegen\vanilla\redwoodpine.json" />
-    <None Include="assets\dominions\worldgen\treegen\vanilla\riverbirch.json" />
-    <None Include="assets\dominions\worldgen\treegen\vanilla\scotspine.json" />
-    <None Include="assets\dominions\worldgen\treegen\vanilla\silverbirch.json" />
-    <None Include="assets\dominions\worldgen\treegen\vanilla\sugarmaple.json" />
-    <None Include="assets\dominions\worldgen\treegen\vanilla\sugarmaplesmall.json" />
-    <None Include="assets\dominions\worldgen\treegen\vanilla\truemulga.json" />
-    <None Include="assets\dominions\worldgen\treegen\vanilla\vineykapok.json" />
-    <None Include="assets\game\lang\en.json" />
-    <None Include="assets\game\patches\addcustomores.json" />
-    <None Include="assets\game\shapes\item\gem\rough\normal\amethyst.json" />
-    <None Include="assets\game\shapes\item\gem\rough\normal\bauxpearl.json" />
-    <None Include="assets\game\shapes\item\gem\rough\normal\citrine.json" />
-    <None Include="assets\game\shapes\item\gem\rough\normal\ruby.json" />
-    <None Include="assets\game\shapes\item\gem\rough\normal\sapphire.json" />
-    <None Include="assets\game\shapes\item\gem\rough\small\sapphire.json" />
-    <None Include="assets\game\worldgen\deposits\gem\amethyst.json" />
-    <None Include="assets\game\worldgen\deposits\gem\bauxpearl.json" />
-    <None Include="assets\game\worldgen\deposits\gem\citrine.json" />
-    <None Include="assets\game\worldgen\deposits\gem\ruby.json" />
-    <None Include="assets\game\worldgen\deposits\gem\sapphire.json" />
-    <None Include="assets\game\worldgen\landforms.json" />
-    <None Include="assets\game\worldproperties\block\wood.json" />
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="assets\game\blocktypes\wood\" />
-    <Folder Include="assets\game\shapes\block\plant\sapling\plaintree\" />
-  </ItemGroup>
-  <ItemGroup>
+    <Compile Include="src\BlockBehavior\BlockBehaviorFiniteSpreadingWater.cs" />
+    <Compile Include="src\Core.cs" />
     <Compile Include="src\Systems\Maps\Map.cs" />
     <Compile Include="src\Systems\Maps\MapForest.cs" />
     <Compile Include="src\Systems\Maps\MapPhysical.cs" />
@@ -271,6 +214,69 @@
     <Compile Include="src\Systems\WorldGen\DisableVanillaHandlers.cs" />
     <Compile Include="src\Systems\WorldGen\OldGenPartial.cs" />
     <Compile Include="src\Systems\WorldGen\WorldMap.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="assets\dominions\patches\addfirewoodrecipe.json" />
+    <None Include="assets\dominions\patches\addplanktexture.json" />
+    <None Include="assets\dominions\patches\addsaplinggen.json" />
+    <None Include="assets\dominions\patches\waterblock.json" />
+    <None Include="assets\dominions\worldgen\forests.json" />
+    <None Include="assets\dominions\worldgen\treegen\custom\araucaria.json" />
+    <None Include="assets\dominions\worldgen\treegen\custom\baobab.json" />
+    <None Include="assets\dominions\worldgen\treegen\custom\ebony.json" />
+    <None Include="assets\dominions\worldgen\treegen\custom\greatredeucalyptus.json" />
+    <None Include="assets\dominions\worldgen\treegen\custom\greatwillow.json" />
+    <None Include="assets\dominions\worldgen\treegen\custom\palm.json" />
+    <None Include="assets\dominions\worldgen\treegen\custom\redeucalyptus.json" />
+    <None Include="assets\dominions\worldgen\treegen\custom\stub.json" />
+    <None Include="assets\dominions\worldgen\treegen\custom\tallwillow.json" />
+    <None Include="assets\dominions\worldgen\treegen\custom\willow.json" />
+    <None Include="assets\dominions\worldgen\treegen\vanilla\acacia.json" />
+    <None Include="assets\dominions\worldgen\treegen\vanilla\bristleconepine.json" />
+    <None Include="assets\dominions\worldgen\treegen\vanilla\cypress.json" />
+    <None Include="assets\dominions\worldgen\treegen\vanilla\deadacacia.json" />
+    <None Include="assets\dominions\worldgen\treegen\vanilla\dwarfbirch.json" />
+    <None Include="assets\dominions\worldgen\treegen\vanilla\englishoak.json" />
+    <None Include="assets\dominions\worldgen\treegen\vanilla\fir.json" />
+    <None Include="assets\dominions\worldgen\treegen\vanilla\himalayanbirch.json" />
+    <None Include="assets\dominions\worldgen\treegen\vanilla\japanesemaple.json" />
+    <None Include="assets\dominions\worldgen\treegen\vanilla\kapok.json" />
+    <None Include="assets\dominions\worldgen\treegen\vanilla\largekapok.json" />
+    <None Include="assets\dominions\worldgen\treegen\vanilla\mountainmaple.json" />
+    <None Include="assets\dominions\worldgen\treegen\vanilla\mountainpine.json" />
+    <None Include="assets\dominions\worldgen\treegen\vanilla\norwaymaple.json" />
+    <None Include="assets\dominions\worldgen\treegen\vanilla\oldenglishoak.json" />
+    <None Include="assets\dominions\worldgen\treegen\vanilla\oldkapok.json" />
+    <None Include="assets\dominions\worldgen\treegen\vanilla\pricklymoses.json" />
+    <None Include="assets\dominions\worldgen\treegen\vanilla\redwoodpine.json" />
+    <None Include="assets\dominions\worldgen\treegen\vanilla\riverbirch.json" />
+    <None Include="assets\dominions\worldgen\treegen\vanilla\scotspine.json" />
+    <None Include="assets\dominions\worldgen\treegen\vanilla\silverbirch.json" />
+    <None Include="assets\dominions\worldgen\treegen\vanilla\sugarmaple.json" />
+    <None Include="assets\dominions\worldgen\treegen\vanilla\sugarmaplesmall.json" />
+    <None Include="assets\dominions\worldgen\treegen\vanilla\truemulga.json" />
+    <None Include="assets\dominions\worldgen\treegen\vanilla\vineykapok.json" />
+    <None Include="assets\game\blocktypes\liquid\saltwater.json" />
+    <None Include="assets\game\lang\en.json" />
+    <None Include="assets\game\patches\addcustomores.json" />
+    <None Include="assets\game\shapes\block\plant\sapling\plaintree\baobab.json" />
+    <None Include="assets\game\shapes\block\plant\sapling\plaintree\ebony.json" />
+    <None Include="assets\game\shapes\block\plant\sapling\plaintree\palm.json" />
+    <None Include="assets\game\shapes\block\plant\sapling\plaintree\redeucalyptus.json" />
+    <None Include="assets\game\shapes\block\plant\sapling\plaintree\willow.json" />
+    <None Include="assets\game\shapes\item\gem\rough\normal\amethyst.json" />
+    <None Include="assets\game\shapes\item\gem\rough\normal\bauxpearl.json" />
+    <None Include="assets\game\shapes\item\gem\rough\normal\citrine.json" />
+    <None Include="assets\game\shapes\item\gem\rough\normal\ruby.json" />
+    <None Include="assets\game\shapes\item\gem\rough\normal\sapphire.json" />
+    <None Include="assets\game\shapes\item\gem\rough\small\sapphire.json" />
+    <None Include="assets\game\worldgen\deposits\gem\amethyst.json" />
+    <None Include="assets\game\worldgen\deposits\gem\bauxpearl.json" />
+    <None Include="assets\game\worldgen\deposits\gem\citrine.json" />
+    <None Include="assets\game\worldgen\deposits\gem\ruby.json" />
+    <None Include="assets\game\worldgen\deposits\gem\sapphire.json" />
+    <None Include="assets\game\worldgen\landforms.json" />
+    <None Include="assets\game\worldproperties\block\wood.json" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>

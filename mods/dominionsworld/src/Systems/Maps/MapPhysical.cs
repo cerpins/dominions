@@ -33,17 +33,38 @@ namespace dominions.Systems.Maps
             };
         }
 
-        public int GetTemperature(int chunkX, int chunkZ) 
-        { 
-            return PixelAtChunk(chunkX, chunkZ).R; 
+        public int GetTemperature(int chunkX, int chunkZ)
+        {
+            return PixelAtChunk(chunkX, chunkZ).R;
         }
-        public int GetHumidity(int chunkX, int chunkZ) 
-        { 
-            return PixelAtChunk(chunkX, chunkZ).G; 
+
+        public int GetHumidity(int chunkX, int chunkZ)
+        {
+            return PixelAtChunk(chunkX, chunkZ).G;
         }
-        public int GetLandformIndex(int chunkX, int chunkZ) 
-        { 
-            return PixelAtChunk(chunkX, chunkZ).B; 
+
+        public int GetLandformIndex(int chunkX, int chunkZ)
+        {
+            return PixelAtChunk(chunkX, chunkZ).B;
+        }
+
+        public bool IsSaltWater(int chunkX, int chunkZ)
+        {
+            for (int x = -1; x < 2; x++)
+            {
+                for (int z = -1; z < 2; z++)
+                {
+                    switch (GetLandformIndex(chunkX + x, chunkZ + z))
+                    {
+                        case 8:
+                        case 35:
+                        case 36:
+                            return true;
+                    }
+                }
+            }
+
+            return false;
         }
     }
 }

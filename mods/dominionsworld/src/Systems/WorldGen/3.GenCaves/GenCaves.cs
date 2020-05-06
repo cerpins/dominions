@@ -8,18 +8,21 @@ namespace dominions.world
 {
     public class GenCaves : OldGenPartial
     {
+        private int saltWater;
         internal override int chunkRange { get { return 5; } }
 
-        public override double ExecuteOrder() { return 0.3; }
+        public override double ExecuteOrder()
+        {
+            return 0.3;
+        }
 
         internal LCGRandom caveRand;
-        IWorldGenBlockAccessor worldgenBlockAccessor;
+        private IWorldGenBlockAccessor worldgenBlockAccessor;
 
-        Random rand = new Random();
+        private Random rand = new Random();
 
-        NormalizedSimplexNoise basaltNoise;
-        NormalizedSimplexNoise heightvarNoise;
-
+        private NormalizedSimplexNoise basaltNoise;
+        private NormalizedSimplexNoise heightvarNoise;
 
         public override void StartServerSide(ICoreServerAPI api)
         {
@@ -38,15 +41,16 @@ namespace dominions.world
             }
         }
 
-
         public override void initWorldGen()
         {
             base.initWorldGen();
+
+            saltWater = api.World.GetBlock(new AssetLocation("saltwater-still-7")).Id;
+
             caveRand = new LCGRandom(api.WorldManager.Seed + 123128);
             basaltNoise = NormalizedSimplexNoise.FromDefaultOctaves(2, 1f / 3.5f, 0.9f, api.World.Seed + 12);
             heightvarNoise = NormalizedSimplexNoise.FromDefaultOctaves(3, 1f / 20f, 0.9f, api.World.Seed + 12);
         }
-
 
         private void OnMapChunkGen(IMapChunk mapChunk, int chunkX, int chunkZ)
         {
@@ -64,12 +68,10 @@ namespace dominions.world
             }
         }
 
-
         private void CmdCaveGenTest(IServerPlayer player, int groupId, CmdArgs args)
         {
             caveRand = new LCGRandom(api.WorldManager.Seed + 123128);
             initWorldGen();
-
 
             airBlockId = api.World.GetBlock(new AssetLocation("rock-granite")).BlockId;
 
@@ -98,7 +100,6 @@ namespace dominions.world
                 }
             }
 
-
             for (int dx = -5; dx <= 5; dx++)
             {
                 for (int dz = -5; dz <= 5; dz++)
@@ -108,7 +109,6 @@ namespace dominions.world
 
                     IServerChunk[] chunks = GetChunkColumn(chunkX, chunkZ);
                     ClearChunkColumn(chunks);
-
 
                     for (int gdx = -chunkRange; gdx <= chunkRange; gdx++)
                     {
@@ -151,7 +151,6 @@ namespace dominions.world
 
         private bool ClearChunkColumn(IServerChunk[] chunks)
         {
-
             for (int i = 0; i < chunks.Length; i++)
             {
                 IServerChunk chunk = chunks[i];
@@ -216,7 +215,7 @@ namespace dominions.world
             }
         }
 
-        int blockId;
+        private int blockId;
 
         private void CarveTunnel(IServerChunk[] chunks, int chunkX, int chunkZ, double posX, double posY, double posZ, float horAngle, float vertAngle, float horizontalSize, float verticalSize, int currentIteration, int maxIterations, int branchLevel, bool extraBranchy = false, float curviness = 0.1f, bool largeNearLavaLayer = false)
         {
@@ -271,8 +270,6 @@ namespace dominions.world
                 posZ += GameMath.FastSin(horAngle) * advanceHor;
 
                 vertAngle *= 0.8f;
-
-
 
                 if (caveRand.NextInt(80) == 0)
                 {
@@ -363,11 +360,8 @@ namespace dominions.world
                 horAngle += curviness * horAngleChange;
                 vertAngle += curviness * vertAngleChange;
 
-
-
                 vertAngleChange = 0.9f * vertAngleChange + (caveRand.NextFloat() - caveRand.NextFloat()) * caveRand.NextFloat() * 3;
                 horAngleChange = 0.9f * horAngleChange + (caveRand.NextFloat() - caveRand.NextFloat()) * caveRand.NextFloat() * 1;
-
 
                 if (caveRand.NextInt(140) == 0)
                 {
@@ -413,8 +407,6 @@ namespace dominions.world
                     branchLevel++;
                 }
 
-
-
                 if (horRadius >= 2 && caveRand.NextInt(5) == 0) continue;
 
                 // Check just to prevent unnecessary calculations
@@ -424,8 +416,6 @@ namespace dominions.world
                 SetBlocks(chunks, horRadius, vertRadius + verHeightGainAccum, posX, posY + verHeightGainAccum / 2, posZ, terrainheightmap, rainheightmap, chunkX, chunkZ);
             }
         }
-
-
 
         private void CarveShaft(IServerChunk[] chunks, int chunkX, int chunkZ, double posX, double posY, double posZ, float horAngle, float vertAngle, float horizontalSize, float verticalSize, int caveCurrentIteration, int maxIterations, int branchLevel)
         {
@@ -456,8 +446,6 @@ namespace dominions.world
 
                 vertAngle += 0.1f * vertAngleChange;
                 vertAngleChange = 0.9f * vertAngleChange + (caveRand.NextFloat() - caveRand.NextFloat()) * caveRand.NextFloat() / 3;
-
-
 
                 // Horizontal branch
                 if (maxIterations - currentIteration < 10)
@@ -492,9 +480,6 @@ namespace dominions.world
             }
         }
 
-
-
-
         private bool SetBlocks(IServerChunk[] chunks, float horRadius, float vertRadius, double centerX, double centerY, double centerZ, ushort[] terrainheightmap, ushort[] rainheightmap, int chunkX, int chunkZ)
         {
             IMapChunk mapchunk = chunks[0].MapChunk;
@@ -515,7 +500,6 @@ namespace dominions.world
             double hRadiusSq = horRadius * horRadius;
             double vRadiusSq = vertRadius * vertRadius;
             double distortStrength = GameMath.Clamp(vertRadius / 4.0, 0, 0.1);
-
 
             bool foundWater = false;
             for (int lx = mindx; lx <= maxdx && !foundWater; lx++)
@@ -539,7 +523,9 @@ namespace dominions.world
 
                         int ly = y % chunksize;
 
-                        foundWater = chunks[y / chunksize].Blocks[(ly * chunksize + lz) * chunksize + lx] == GlobalConfig.waterBlockId;
+                        // dominionsmod
+                        // Vanilla checks for water only, we check for both water and saltwater
+                        foundWater = (chunks[y / chunksize].Blocks[(ly * chunksize + lz) * chunksize + lx] == saltWater || chunks[y / chunksize].Blocks[(ly * chunksize + lz) * chunksize + lx] == GlobalConfig.waterBlockId);
                     }
                 }
             }
@@ -562,7 +548,6 @@ namespace dominions.world
 
             hRadiusSq = horRadius * horRadius;
             vRadiusSq = vertRadius * vertRadius;
-
 
             for (int lx = mindx; lx <= maxdx; lx++)
             {
@@ -607,16 +592,12 @@ namespace dominions.world
                             {
                                 worldgenBlockAccessor.ScheduleBlockLightUpdate(new BlockPos(chunkX * chunkSize + lx, y, chunkZ * chunkSize + lz), airBlockId, GlobalConfig.lavaBlockId);
                             }
-
                         }
                     }
                 }
             }
 
-
-
             return true;
         }
-
     }
 }

@@ -1,0 +1,17 @@
+[
+  {
+    "file": "game:blocktypes/liquid/water",
+    "op": "replace",
+    "path": "/behaviors/0",
+    "value": {
+      "name": "FiniteSpreadingWater",
+      "properties": {
+        "spreadDelay": 125,
+        "liquidCollisionSound": "hotmetal",
+        "sourceReplacementCode": "rock-obsidian",
+        "flowingReplacementCode": "rock-basalt",
+        "collidesWith": "lava"
+      }
+    }
+  }
+]

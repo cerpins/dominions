@@ -13,25 +13,27 @@ namespace dominions.world
 {
     public class GenTerra : ModStdWorldGen
     {
-        ICoreServerAPI api;
-        int regionChunkSize;
-        int regionMapSize;
+        private int saltWater;
+        private WorldMap worldMap;
+
+        private ICoreServerAPI api;
+        private int regionChunkSize;
+        private int regionMapSize;
 
         private NormalizedSimplexNoise TerrainNoise;
 
         //GenRockStrata rockstrataGen;
 
-        LandformsWorldProperty landforms;
-        Dictionary<int, LerpedWeightedIndex2DMap> LandformMapByRegion = new Dictionary<int, LerpedWeightedIndex2DMap>(10);
+        private LandformsWorldProperty landforms;
+        private Dictionary<int, LerpedWeightedIndex2DMap> LandformMapByRegion = new Dictionary<int, LerpedWeightedIndex2DMap>(10);
 
-        SimplexNoise distort2dx;
-        SimplexNoise distort2dz;
+        private SimplexNoise distort2dx;
+        private SimplexNoise distort2dz;
 
         public override bool ShouldLoad(EnumAppSide side)
         {
             return side == EnumAppSide.Server;
         }
-
 
         public override double ExecuteOrder()
         {
@@ -50,17 +52,18 @@ namespace dominions.world
         }
 
         // We generate the whole terrain here so we instantly know the heightmap
-        int lerpHor;
-        int lerpVer;
-        int noiseWidth;
-        int paddedNoiseWidth;
-        int paddedNoiseHeight;
-        int noiseHeight;
-        float lerpDeltaHor;
-        float lerpDeltaVert;
+        private int lerpHor;
 
-        double[] noiseTemp;
-        float horizontalScale;
+        private int lerpVer;
+        private int noiseWidth;
+        private int paddedNoiseWidth;
+        private int paddedNoiseHeight;
+        private int noiseHeight;
+        private float lerpDeltaHor;
+        private float lerpDeltaVert;
+
+        private double[] noiseTemp;
+        private float horizontalScale;
 
         public void initWorldGen()
         {
@@ -71,10 +74,8 @@ namespace dominions.world
 
             // Unpadded region noise size in chunks
             regionChunkSize = api.WorldManager.RegionSize / chunksize;
-            // Amount of landform regions in all of the map 
+            // Amount of landform regions in all of the map
             regionMapSize = api.WorldManager.MapSizeX / api.WorldManager.RegionSize;
-
-
 
             horizontalScale = 1f;
             if (GameVersion.IsAtLeastVersion(api.WorldManager.SaveGame.CreatedGameVersion, "1.11.0-dev.1"))
@@ -88,7 +89,6 @@ namespace dominions.world
             // We generate the whole terrain here so we instantly know the heightmap
             lerpHor = TerraGenConfig.lerpHorizontal;
             lerpVer = TerraGenConfig.lerpVertical;
-
 
             noiseWidth = chunksize / lerpHor;
             noiseHeight = api.WorldManager.MapSizeY / lerpVer;
@@ -117,15 +117,15 @@ namespace dominions.world
                 distort2dx = new SimplexNoise(new double[] { 55, 40, 30, 10 }, new double[] { 1 / 500.0, 1 / 250.0, 1 / 125.0, 1 / 65 }, api.World.SeaLevel + 9876 + 0);
                 distort2dz = new SimplexNoise(new double[] { 55, 40, 30, 10 }, new double[] { 1 / 500.0, 1 / 250.0, 1 / 125.0, 1 / 65 }, api.World.SeaLevel + 9877 + 0);
             }
+
+            worldMap = WorldMap.TryGet(api);
         }
-
-
-
-
-
 
         private void OnChunkColumnGen(IServerChunk[] chunks, int chunkX, int chunkZ, ITreeAttribute chunkGenParams = null)
         {
+            // determine whether or not water is salty
+            int waterBlockId = worldMap.mapPhysical.IsSaltWater(chunkX, chunkZ) ? api.World.GetBlock(new AssetLocation("saltwater-still-7")).Id : GlobalConfig.waterBlockId;
+
             landforms = NoiseLandforms.landforms;
             IMapChunk mapchunk = chunks[0].MapChunk;
 
@@ -147,7 +147,6 @@ namespace dominions.world
 
             int freezingTemp = TerraGenConfig.DescaleTemperature(-17);
 
-
             IntMap landformMap = mapchunk.MapRegion.LandformMap;
             // Amount of pixels for each chunk (probably 1, 2, or 4) in the land form map
             float chunkPixelSize = landformMap.InnerSize / regionChunkSize;
@@ -157,14 +156,13 @@ namespace dominions.world
             float baseX = (chunkX % regionChunkSize) * chunkPixelSize;
             float baseZ = (chunkZ % regionChunkSize) * chunkPixelSize;
 
-
             LerpedWeightedIndex2DMap landLerpMap = GetOrLoadLerpedLandformMap(chunks[0].MapChunk, chunkX / regionChunkSize, chunkZ / regionChunkSize);
 
             // Terrain octaves
             double[] octNoiseX0, octNoiseX1, octNoiseX2, octNoiseX3;
             double[] octThX0, octThX1, octThX2, octThX3;
 
-            // So it seems we have some kind of off-by-one error here? 
+            // So it seems we have some kind of off-by-one error here?
             // When the slope of a mountain goes up (in positive z or x direction), particularly at large word heights (512+)
             // then the last blocks (again in postive x/z dir) are below of where they should be?
             // I have no idea why, but this offset seems to greatly mitigate the issue
@@ -176,13 +174,11 @@ namespace dominions.world
             GetInterpolatedOctaves(landLerpMap[baseX, baseZ + chunkPixelSize], out octNoiseX2, out octThX2);
             GetInterpolatedOctaves(landLerpMap[baseX + chunkPixelSize, baseZ + chunkPixelSize], out octNoiseX3, out octThX3);
 
-
             double[] terrainNoise3d = GetTerrainNoise3D(octNoiseX0, octNoiseX1, octNoiseX2, octNoiseX3, octThX0, octThX1, octThX2, octThX3, chunkX * noiseWidth, 0, chunkZ * noiseWidth);
 
             // Store heightmap in the map chunk
             ushort[] rainheightmap = chunks[0].MapChunk.RainHeightMap;
             ushort[] terrainheightmap = chunks[0].MapChunk.WorldGenTerrainHeightMap;
-
 
             // Terrain thresholds
             double tnoiseY0;
@@ -193,7 +189,6 @@ namespace dominions.world
             double tnoiseGainY1;
             double tnoiseGainY2;
             double tnoiseGainY3;
-
 
             double thNoiseX0;
             double thNoiseX1;
@@ -206,8 +201,6 @@ namespace dominions.world
             float[] terrainThresholdsX1 = new float[api.WorldManager.MapSizeY];
             float[] terrainThresholdsX2 = new float[api.WorldManager.MapSizeY];
             float[] terrainThresholdsX3 = new float[api.WorldManager.MapSizeY];
-
-
 
             for (int xN = 0; xN < noiseWidth; xN++)
             {
@@ -232,15 +225,13 @@ namespace dominions.world
                         tnoiseGainY2 = (terrainNoise3d[NoiseIndex3d(xN + 1, yN + 1, zN)] - tnoiseY2) * lerpDeltaVert;
                         tnoiseGainY3 = (terrainNoise3d[NoiseIndex3d(xN + 1, yN + 1, zN + 1)] - tnoiseY3) * lerpDeltaVert;
 
-
-
                         for (int y = 0; y < lerpVer; y++)
                         {
                             int posY = yN * lerpVer + y;
                             int chunkY = posY / chunksize;
                             int localY = posY % chunksize;
 
-                            // For Terrain noise 
+                            // For Terrain noise
                             double tnoiseX0 = tnoiseY0;
                             double tnoiseX1 = tnoiseY1;
 
@@ -253,7 +244,6 @@ namespace dominions.world
 
                             thNoiseGainX0 = (terrainThresholdsX1[posY] - thNoiseX0) * lerpDeltaHor;
                             thNoiseGainX1 = (terrainThresholdsX3[posY] - thNoiseX1) * lerpDeltaHor;
-
 
                             for (int x = 0; x < lerpHor; x++)
                             {
@@ -281,7 +271,6 @@ namespace dominions.world
                                         continue;
                                     }
 
-
                                     if (tnoiseZ0 > thNoiseZ0)
                                     {
                                         terrainheightmap[mapIndex] = rainheightmap[mapIndex] = (ushort)Math.Max(rainheightmap[mapIndex], posY);
@@ -300,13 +289,12 @@ namespace dominions.world
                                                 float distort = (float)distort2dx.Noise(chunkX * chunksize + lX, chunkZ * chunksize + lZ) / 20f;
                                                 float tempf = TerraGenConfig.GetScaledAdjustedTemperatureFloat(temp, 0) + distort;
 
-                                                chunks[chunkY].Blocks[chunkIndex] = (tempf < -17) ? GlobalConfig.lakeIceBlockId : GlobalConfig.waterBlockId;
+                                                chunks[chunkY].Blocks[chunkIndex] = (tempf < -17) ? GlobalConfig.lakeIceBlockId : waterBlockId;
                                             }
                                             else
                                             {
-                                                chunks[chunkY].Blocks[chunkIndex] = GlobalConfig.waterBlockId;
+                                                chunks[chunkY].Blocks[chunkIndex] = waterBlockId;
                                             }
-
                                         }
                                         else
                                         {
@@ -342,9 +330,7 @@ namespace dominions.world
             chunks[0].MapChunk.YMax = (ushort)ymax;
         }
 
-
-
-        LerpedWeightedIndex2DMap GetOrLoadLerpedLandformMap(IMapChunk mapchunk, int regionX, int regionZ)
+        private LerpedWeightedIndex2DMap GetOrLoadLerpedLandformMap(IMapChunk mapchunk, int regionX, int regionZ)
         {
             LerpedWeightedIndex2DMap map;
             // 1. Load?
@@ -358,7 +344,6 @@ namespace dominions.world
 
             return map;
         }
-
 
         // Can be called only once per x/z coordinate to get a list of all thresholds for this column
         private void LoadInterpolatedThresholds(WeightedIndex[] indices, float[] values)
@@ -374,9 +359,6 @@ namespace dominions.world
                 values[y] = threshold;
             }
         }
-
-
-
 
         private void GetInterpolatedOctaves(WeightedIndex[] indices, out double[] amps, out double[] thresholds)
         {
@@ -399,11 +381,10 @@ namespace dominions.world
             }
         }
 
+        private double[] lerpedAmps = new double[TerraGenConfig.terrainGenOctaves];
+        private double[] lerpedTh = new double[TerraGenConfig.terrainGenOctaves];
 
-        double[] lerpedAmps = new double[TerraGenConfig.terrainGenOctaves];
-        double[] lerpedTh = new double[TerraGenConfig.terrainGenOctaves];
-
-        double[] GetTerrainNoise3D(double[] octX0, double[] octX1, double[] octX2, double[] octX3, double[] octThX0, double[] octThX1, double[] octThX2, double[] octThX3, int xPos, int yPos, int zPos)
+        private double[] GetTerrainNoise3D(double[] octX0, double[] octX1, double[] octX2, double[] octX3, double[] octThX0, double[] octThX1, double[] octThX2, double[] octThX3, int xPos, int yPos, int zPos)
         {
             for (int x = 0; x < paddedNoiseWidth; x++)
             {
@@ -433,8 +414,6 @@ namespace dominions.world
 
             return noiseTemp;
         }
-
-
 
         private int ChunkIndex3d(int x, int y, int z)
         {

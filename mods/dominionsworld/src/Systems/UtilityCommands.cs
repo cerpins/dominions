@@ -11,9 +11,10 @@ using Vintagestory.ServerMods.NoObf;
 
 namespace dominions.src.Systems
 {
-    class UtilityCommands : ModSystem
+    internal class UtilityCommands : ModSystem
     {
-        ICoreServerAPI sapi;
+        private ICoreServerAPI sapi;
+
         public override void StartServerSide(ICoreServerAPI sapi)
         {
             base.StartServerSide(sapi);
@@ -21,11 +22,13 @@ namespace dominions.src.Systems
 
             sapi.RegisterCommand("getblockid", "Retrieve block id", "/getBlockId string", CmdGetBlockId);
         }
+
         private void CmdGetBlockId(IServerPlayer player, int groupId, CmdArgs args)
         {
             int cmdChan = GlobalConstants.AllChatGroups;
 
-            if (args.Length < 1) {
+            if (args.Length < 1)
+            {
                 player.SendMessage(cmdChan, "No arguments passed", EnumChatType.CommandError);
                 return;
             }
