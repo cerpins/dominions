@@ -1,0 +1,14 @@
+[
+  {
+    "file": "game:worldgen/deposits/metalore/nativecopper",
+    "op": "replace",
+    "path": "/0/attributes/radius/avg",
+    "value": 16
+  },
+  {
+    "file": "game:worldgen/deposits/metalore/nativecopper",
+    "op": "replace",
+    "path": "/1/attributes/radius/avg",
+    "value": 18
+  }
+]

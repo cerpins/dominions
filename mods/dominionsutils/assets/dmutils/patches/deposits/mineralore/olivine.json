@@ -1,0 +1,14 @@
+[
+  {
+    "file": "game:worldgen/deposits/mineralore/olivine",
+    "op": "replace",
+    "path": "/0/attributes/radius/avg",
+    "value": 24
+  },
+  {
+    "file": "game:worldgen/deposits/mineralore/olivine",
+    "op": "replace",
+    "path": "/0/childDeposits/0/attributes/radius/avg",
+    "value": 24
+  }
+]

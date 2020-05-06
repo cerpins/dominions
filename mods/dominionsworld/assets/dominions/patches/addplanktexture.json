@@ -1,0 +1,28 @@
+﻿[
+  {
+  	  "file": "game:blocktypes/wood/plankpile",
+	  "op": "add",
+	  "path": "/textures/palm",
+	  "value": { base: "block/wood/planks/palm1" }
+  },{
+  	  "file": "game:blocktypes/wood/plankpile",
+	  "op": "add",
+	  "path": "/textures/ebony",
+	  "value": { base: "block/wood/planks/ebony1" }
+  },{
+  	  "file": "game:blocktypes/wood/plankpile",
+	  "op": "add",
+	  "path": "/textures/baobab",
+	  "value": { base: "block/wood/planks/baobab1" }
+  },{
+  	  "file": "game:blocktypes/wood/plankpile",
+	  "op": "add",
+	  "path": "/textures/willow",
+	  "value": { base: "block/wood/planks/willow1" }
+  },{
+  	  "file": "game:blocktypes/wood/plankpile",
+	  "op": "add",
+	  "path": "/textures/redeucalyptus",
+	  "value": { base: "block/wood/planks/redeucalyptus1" }
+  }
+]

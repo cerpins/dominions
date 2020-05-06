@@ -1,0 +1,47 @@
+{
+  "editor": {
+    "allAngles": true,
+    "singleTexture": true
+  },
+  "textureWidth": 16,
+  "textureHeight": 16,
+  "textures": {
+  },
+  "elements": [
+    {
+      "name": "Head",
+      "from": [5.0, 0.0, 5.8],
+      "to": [10.5, 4.5, 10.3],
+      "autoUnwrap": false,
+      "uv": [-2.0, 0.0],
+      "rotationOrigin": [8.0, 0.0, 8.0],
+      "faces": {
+        "north": { "texture": "#skull", "uv": [0.0, 6.0, 5.5, 10.5] },
+        "east": { "texture": "#skull", "uv": [6.0, 11.0, 10.5, 15.5] },
+        "south": { "texture": "#skull", "uv": [0.0, 11.0, 5.5, 15.5] },
+        "west": { "texture": "#skull", "uv": [6.0, 6.0, 10.5, 10.5] },
+        "up": {
+          "texture": "#skull",
+          "uv": [0.0, 0.0, 4.5, 5.5],
+          "rotation": 90
+        },
+        "down": {
+          "texture": "#skull",
+          "uv": [5.0, 0.0, 9.5, 5.5],
+          "rotation": 90
+        }
+      },
+      "attachmentpoints": [
+        {
+          "code": "Eyes",
+          "posX": "-0.3",
+          "posY": "2.5",
+          "posZ": "2.5",
+          "rotationX": "0.0",
+          "rotationY": "-90.0",
+          "rotationZ": "0.0"
+        }
+      ]
+    }
+  ]
+}

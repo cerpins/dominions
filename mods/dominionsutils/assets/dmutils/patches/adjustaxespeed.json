@@ -1,0 +1,106 @@
+﻿[
+  {
+  	  "file": "game:blocktypes/wood/log",
+	  "op": "replace",
+	  "path": "/resistance",
+	  "value": 0.3
+  },
+  {
+	"file": "game:itemtypes/tool/axe-stone",
+    "op": "replace",
+    "path": "/class",
+    "value": "dmItemAxeLowerDrops"
+  },
+  {
+	"file": "game:itemtypes/tool/axe-metal",
+    "op": "replace",
+    "path": "/class",
+    "value": "dmItemAxeLowerDrops"
+  },
+  {
+    "file": "game:itemtypes/tool/axe-stone",
+    "op": "replace",
+    "path": "/miningspeedbytype",
+    "value": {
+    
+		"axe-granite": {
+			"wood": 1,
+			"plant": 2.2,
+			"leaves": 1.7
+		},
+		"axe-peridotite": {
+			"wood": 1,
+			"plant": 2.2,
+			"leaves": 1.7
+		},
+		"axe-andesite": {
+			"wood": 1,
+			"plant": 2.2,
+			"leaves": 1.7
+		},
+		"axe-basalt": {
+			"wood": 1,
+			"plant": 2.2,
+			"leaves": 1.7
+		},
+		"axe-flint": {
+			"wood": 1.5,
+			"plant": 2.2,
+			"leaves": 1.6
+		},
+		"axe-obsidian": {
+			"wood": 2,
+			"plant": 2.7,
+			"leaves": 2.4
+		}
+	}
+  },
+  {
+    "file": "game:itemtypes/tool/axe-metal",
+    "op": "replace",
+    "path": "/miningspeedbytype",
+    "value": {
+		
+		"axe-copper": {
+			"wood": 4,
+			"plant": 2.8,
+			"leaves": 2.4
+		},
+		"axe-silver": {
+			"wood": 3,
+			"plant": 3.3,
+			"leaves": 3
+		},
+		"axe-gold": {
+			"wood": 3,
+			"plant": 3.3,
+			"leaves": 3
+		},
+		"axe-bismuthbronze": {
+			"wood": 4,
+			"plant": 3.5,
+			"leaves": 2.6
+		},
+		"axe-tinbronze": {
+			"wood": 4,
+			"plant": 3.8,
+			"leaves": 3
+		},
+		"axe-blackbronze": {
+			"wood": 5,
+			"plant": 4,
+			"leaves": 3.1
+		},
+		"axe-iron": {
+			"wood": 6,
+			"plant": 5,
+			"leaves": 3.2
+		},
+		"axe-steel": {
+			"wood": 7,
+			"plant": 6,
+			"leaves": 4
+		}
+	}
+  }
+]

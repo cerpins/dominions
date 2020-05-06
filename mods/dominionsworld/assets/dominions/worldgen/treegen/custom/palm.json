@@ -1,0 +1,37 @@
+{
+  "treeWorldPropertyCode": "palm",
+  "sizeMultiplier": 1,
+  "yOffset": 0,
+  "fruitChance": 0.1,
+  "trunks": [
+    {
+      "gravityDrag": 0,
+      "widthloss": 0.02,
+      "dieAt": { "avg": 0.24 },
+      "branchStart": { "avg": 0.5 },
+      "branchSpacing": { "avg": 0 },
+      "capBranch": true,
+      "branchQuantity": { "avg": 20, "var": 5 },
+      "branchWidthMultiplier": { "avg": 1.5, "var": 0 },
+      "widthMultiplier": 1.25,
+
+      "branchVerticalAngle": { "avg": 1, "var": 0.1 },
+      "branchHorizontalAngle": { "avg": 0, "var": 3.1415 },
+      "angleVertEvolve": { "transform": "quadratic", "factor": 1 }
+    }
+  ],
+  "branches": [
+    {
+      "gravityDrag": 0.05,
+      "widthLoss": 0.031,
+      "angleVertEvolve": { "transform": "linear", "factor": 1.1 }
+    }
+  ],
+  "treeBlocks": {
+    "logBlockCode": "game:log-grown-palm-ud",
+    "leavesBlockCode": "game:leaves-grown-palm",
+    "leavesBranchyBlockCode": "game:leavesbranchy-grown-palm",
+    "vinesBlockCode": "game:air",
+    "vinesEndBlockCode": "game:air"
+  }
+}

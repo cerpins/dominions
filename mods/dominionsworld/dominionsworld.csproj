@@ -1,0 +1,283 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{A6A56E23-71B6-4445-BAA5-334D8EF979D5}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>dominionsworld</RootNamespace>
+    <AssemblyName>dominionsworld</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\..\bin\Debug\dominionsworld\</OutputPath>
+    <IntermediateOutputPath>..\..\obj\Debug\dominionsworld\</IntermediateOutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>..\..\bin\Release\dominionsworld\</OutputPath>
+    <IntermediateOutputPath>..\..\obj\Release\dominionsworld\</IntermediateOutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <PropertyGroup>
+    <DefaultItemExcludes>$(DefaultItemExcludes);*.csproj*</DefaultItemExcludes>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+    <Reference Include="VintagestoryAPI">
+      <HintPath>$(AppData)\Vintagestory\VintagestoryAPI.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="VSSurvivalMod">
+      <HintPath>$(AppData)\Vintagestory\Mods\VSSurvivalMod.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="VSEssentials">
+      <HintPath>$(AppData)\Vintagestory\Mods\VSEssentials.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="VSCreativeMod">
+      <HintPath>$(AppData)\Vintagestory\Mods\VSCreativeMod.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>$(AppData)\Vintagestory\Lib\Newtonsoft.Json.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="assets\dominions\patches\addfirewoodrecipe.json" />
+    <Content Include="assets\game\textures\block\stone\gem\amethyst.png" />
+    <Content Include="assets\game\textures\block\stone\gem\bauxpearl.png" />
+    <Content Include="assets\game\textures\block\stone\gem\citrine.png" />
+    <Content Include="assets\game\textures\block\stone\gem\citrine2.png" />
+    <Content Include="assets\game\textures\block\stone\gem\citrine3.png" />
+    <Content Include="assets\game\textures\block\stone\gem\citrine4.png" />
+    <Content Include="assets\game\textures\block\stone\gem\nephrite.png" />
+    <Content Include="assets\game\textures\block\stone\gem\ruby.png" />
+    <Content Include="assets\game\textures\block\stone\gem\sapphire.png" />
+    <Content Include="assets\game\textures\block\stone\ore\amethyst1.png" />
+    <Content Include="assets\game\textures\block\stone\ore\amethyst2.png" />
+    <Content Include="assets\game\textures\block\stone\ore\amethyst3.png" />
+    <Content Include="assets\game\textures\block\stone\ore\bauxpearl1.png" />
+    <Content Include="assets\game\textures\block\stone\ore\bauxpearl2.png" />
+    <Content Include="assets\game\textures\block\stone\ore\bauxpearl3.png" />
+    <Content Include="assets\game\textures\block\stone\ore\citrine1.png" />
+    <Content Include="assets\game\textures\block\stone\ore\citrine2.png" />
+    <Content Include="assets\game\textures\block\stone\ore\citrine3.png" />
+    <Content Include="assets\game\textures\block\stone\ore\nephrite1.png" />
+    <Content Include="assets\game\textures\block\stone\ore\nephrite2.png" />
+    <Content Include="assets\game\textures\block\stone\ore\nephrite3.png" />
+    <Content Include="assets\game\textures\block\stone\ore\ruby1.png" />
+    <Content Include="assets\game\textures\block\stone\ore\ruby2.png" />
+    <Content Include="assets\game\textures\block\stone\ore\ruby3.png" />
+    <Content Include="assets\game\textures\block\stone\ore\sapphire1.png" />
+    <Content Include="assets\game\textures\block\stone\ore\sapphire2.png" />
+    <Content Include="assets\game\textures\block\stone\ore\sapphire3.png" />
+    <Content Include="assets\game\textures\block\wood\bark\baobab-h.png" />
+    <Content Include="assets\game\textures\block\wood\bark\baobab.png" />
+    <Content Include="assets\game\textures\block\wood\bark\ebony-h.png" />
+    <Content Include="assets\game\textures\block\wood\bark\ebony.png" />
+    <Content Include="assets\game\textures\block\wood\bark\palm-h.png" />
+    <Content Include="assets\game\textures\block\wood\bark\palm.png" />
+    <Content Include="assets\game\textures\block\wood\bark\redeucalyptus-h.png" />
+    <Content Include="assets\game\textures\block\wood\bark\redeucalyptus.png" />
+    <Content Include="assets\game\textures\block\wood\bark\willow-h.png" />
+    <Content Include="assets\game\textures\block\wood\bark\willow.png" />
+    <Content Include="assets\game\textures\block\wood\debarked\baobab.png" />
+    <Content Include="assets\game\textures\block\wood\debarked\ebony.png" />
+    <Content Include="assets\game\textures\block\wood\debarked\palm.png" />
+    <Content Include="assets\game\textures\block\wood\debarked\redeucalyptus.png" />
+    <Content Include="assets\game\textures\block\wood\debarked\willow.png" />
+    <Content Include="assets\game\textures\block\wood\fencegate\baobab\horizontal.png" />
+    <Content Include="assets\game\textures\block\wood\fencegate\baobab\vertical.png" />
+    <Content Include="assets\game\textures\block\wood\fencegate\ebony\horizontal.png" />
+    <Content Include="assets\game\textures\block\wood\fencegate\ebony\vertical.png" />
+    <Content Include="assets\game\textures\block\wood\fencegate\palm\horizontal.png" />
+    <Content Include="assets\game\textures\block\wood\fencegate\palm\vertical.png" />
+    <Content Include="assets\game\textures\block\wood\fencegate\redeucalyptus\horizontal.png" />
+    <Content Include="assets\game\textures\block\wood\fencegate\redeucalyptus\vertical.png" />
+    <Content Include="assets\game\textures\block\wood\fencegate\willow\horizontal.png" />
+    <Content Include="assets\game\textures\block\wood\fencegate\willow\vertical.png" />
+    <Content Include="assets\game\textures\block\wood\fence\baobab\horizontal.png" />
+    <Content Include="assets\game\textures\block\wood\fence\baobab\vertical.png" />
+    <Content Include="assets\game\textures\block\wood\fence\ebony\horizontal.png" />
+    <Content Include="assets\game\textures\block\wood\fence\ebony\vertical.png" />
+    <Content Include="assets\game\textures\block\wood\fence\palm\horizontal.png" />
+    <Content Include="assets\game\textures\block\wood\fence\palm\vertical.png" />
+    <Content Include="assets\game\textures\block\wood\fence\redeucalyptus\horizontal.png" />
+    <Content Include="assets\game\textures\block\wood\fence\redeucalyptus\vertical.png" />
+    <Content Include="assets\game\textures\block\wood\fence\willow\horizontal.png" />
+    <Content Include="assets\game\textures\block\wood\fence\willow\vertical.png" />
+    <Content Include="assets\game\textures\block\wood\leaves\baobab1.png" />
+    <Content Include="assets\game\textures\block\wood\leaves\ebony - Copy.png" />
+    <Content Include="assets\game\textures\block\wood\leaves\ebony1.png" />
+    <Content Include="assets\game\textures\block\wood\leaves\fruitbranch.png" />
+    <Content Include="assets\game\textures\block\wood\leaves\palm1.png" />
+    <Content Include="assets\game\textures\block\wood\leaves\redeucalyptus1.png" />
+    <Content Include="assets\game\textures\block\wood\leaves\willow1.png" />
+    <Content Include="assets\game\textures\block\wood\planks\baobab1.png" />
+    <Content Include="assets\game\textures\block\wood\planks\ebony1.png" />
+    <Content Include="assets\game\textures\block\wood\planks\ebony2.png" />
+    <Content Include="assets\game\textures\block\wood\planks\ebony3.png" />
+    <Content Include="assets\game\textures\block\wood\planks\ebony4.png" />
+    <Content Include="assets\game\textures\block\wood\planks\palm1.png" />
+    <Content Include="assets\game\textures\block\wood\planks\palm2.png" />
+    <Content Include="assets\game\textures\block\wood\planks\palm3.png" />
+    <Content Include="assets\game\textures\block\wood\planks\palm4.png" />
+    <Content Include="assets\game\textures\block\wood\planks\redeucalyptus1.png" />
+    <Content Include="assets\game\textures\block\wood\planks\redeucalyptus2.png" />
+    <Content Include="assets\game\textures\block\wood\planks\redeucalyptus3.png" />
+    <Content Include="assets\game\textures\block\wood\planks\redeucalyptus4.png" />
+    <Content Include="assets\game\textures\block\wood\planks\willow1.png" />
+    <Content Include="assets\game\textures\block\wood\planks\willow2.png" />
+    <Content Include="assets\game\textures\block\wood\planks\willow3.png" />
+    <Content Include="assets\game\textures\block\wood\planks\willow4.png" />
+    <Content Include="assets\game\textures\block\wood\treetrunk\baobab.png" />
+    <Content Include="assets\game\textures\block\wood\treetrunk\ebony.png" />
+    <Content Include="assets\game\textures\block\wood\treetrunk\palm.png" />
+    <Content Include="assets\game\textures\block\wood\treetrunk\redeucalyptus.png" />
+    <Content Include="assets\game\textures\block\wood\treetrunk\weird.png" />
+    <Content Include="assets\game\textures\block\wood\treetrunk\whiteish.png" />
+    <Content Include="assets\game\textures\block\wood\treetrunk\willow.png" />
+    <Content Include="modinfo.json" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="assets\dominions\patches\addplanktexture.json" />
+    <None Include="assets\dominions\patches\addsaplinggen.json" />
+    <None Include="assets\dominions\worldgen\forests.json" />
+    <None Include="assets\dominions\worldgen\treegen\custom\araucaria.json" />
+    <None Include="assets\dominions\worldgen\treegen\custom\baobab.json" />
+    <None Include="assets\dominions\worldgen\treegen\custom\ebony.json" />
+    <None Include="assets\dominions\worldgen\treegen\custom\greatredeucalyptus.json" />
+    <None Include="assets\dominions\worldgen\treegen\custom\greatwillow.json" />
+    <None Include="assets\dominions\worldgen\treegen\custom\palm.json" />
+    <None Include="assets\dominions\worldgen\treegen\custom\redeucalyptus.json" />
+    <None Include="assets\dominions\worldgen\treegen\custom\stub.json" />
+    <None Include="assets\dominions\worldgen\treegen\custom\tallwillow.json" />
+    <None Include="assets\dominions\worldgen\treegen\custom\willow.json" />
+    <None Include="assets\dominions\worldgen\treegen\vanilla\acacia.json" />
+    <None Include="assets\dominions\worldgen\treegen\vanilla\bristleconepine.json" />
+    <None Include="assets\dominions\worldgen\treegen\vanilla\cypress.json" />
+    <None Include="assets\dominions\worldgen\treegen\vanilla\deadacacia.json" />
+    <None Include="assets\dominions\worldgen\treegen\vanilla\dwarfbirch.json" />
+    <None Include="assets\dominions\worldgen\treegen\vanilla\englishoak.json" />
+    <None Include="assets\dominions\worldgen\treegen\vanilla\fir.json" />
+    <None Include="assets\dominions\worldgen\treegen\vanilla\himalayanbirch.json" />
+    <None Include="assets\dominions\worldgen\treegen\vanilla\japanesemaple.json" />
+    <None Include="assets\dominions\worldgen\treegen\vanilla\kapok.json" />
+    <None Include="assets\dominions\worldgen\treegen\vanilla\largekapok.json" />
+    <None Include="assets\dominions\worldgen\treegen\vanilla\mountainmaple.json" />
+    <None Include="assets\dominions\worldgen\treegen\vanilla\mountainpine.json" />
+    <None Include="assets\dominions\worldgen\treegen\vanilla\norwaymaple.json" />
+    <None Include="assets\dominions\worldgen\treegen\vanilla\oldenglishoak.json" />
+    <None Include="assets\dominions\worldgen\treegen\vanilla\oldkapok.json" />
+    <None Include="assets\dominions\worldgen\treegen\vanilla\pricklymoses.json" />
+    <None Include="assets\dominions\worldgen\treegen\vanilla\redwoodpine.json" />
+    <None Include="assets\dominions\worldgen\treegen\vanilla\riverbirch.json" />
+    <None Include="assets\dominions\worldgen\treegen\vanilla\scotspine.json" />
+    <None Include="assets\dominions\worldgen\treegen\vanilla\silverbirch.json" />
+    <None Include="assets\dominions\worldgen\treegen\vanilla\sugarmaple.json" />
+    <None Include="assets\dominions\worldgen\treegen\vanilla\sugarmaplesmall.json" />
+    <None Include="assets\dominions\worldgen\treegen\vanilla\truemulga.json" />
+    <None Include="assets\dominions\worldgen\treegen\vanilla\vineykapok.json" />
+    <None Include="assets\game\lang\en.json" />
+    <None Include="assets\game\patches\addcustomores.json" />
+    <None Include="assets\game\shapes\item\gem\rough\normal\amethyst.json" />
+    <None Include="assets\game\shapes\item\gem\rough\normal\bauxpearl.json" />
+    <None Include="assets\game\shapes\item\gem\rough\normal\citrine.json" />
+    <None Include="assets\game\shapes\item\gem\rough\normal\ruby.json" />
+    <None Include="assets\game\shapes\item\gem\rough\normal\sapphire.json" />
+    <None Include="assets\game\shapes\item\gem\rough\small\sapphire.json" />
+    <None Include="assets\game\worldgen\deposits\gem\amethyst.json" />
+    <None Include="assets\game\worldgen\deposits\gem\bauxpearl.json" />
+    <None Include="assets\game\worldgen\deposits\gem\citrine.json" />
+    <None Include="assets\game\worldgen\deposits\gem\ruby.json" />
+    <None Include="assets\game\worldgen\deposits\gem\sapphire.json" />
+    <None Include="assets\game\worldgen\landforms.json" />
+    <None Include="assets\game\worldproperties\block\wood.json" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="assets\game\blocktypes\wood\" />
+    <Folder Include="assets\game\shapes\block\plant\sapling\plaintree\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="src\Systems\Maps\Map.cs" />
+    <Compile Include="src\Systems\Maps\MapForest.cs" />
+    <Compile Include="src\Systems\Maps\MapPhysical.cs" />
+    <Compile Include="src\Systems\UtilityCommands.cs" />
+    <Compile Include="src\Systems\WorldGen\0.GenMaps\GenMaps.cs" />
+    <Compile Include="src\Systems\WorldGen\0.GenMaps\MapLayer\MapLayerBase.cs" />
+    <Compile Include="src\Systems\WorldGen\0.GenMaps\MapLayer\MapLayerBlur.cs" />
+    <Compile Include="src\Systems\WorldGen\0.GenMaps\MapLayer\MapLayerClimate.cs" />
+    <Compile Include="src\Systems\WorldGen\0.GenMaps\MapLayer\MapLayerCustomPerlin.cs" />
+    <Compile Include="src\Systems\WorldGen\0.GenMaps\MapLayer\MapLayerDebugWind.cs" />
+    <Compile Include="src\Systems\WorldGen\0.GenMaps\MapLayer\MapLayerDoublePerlin.cs" />
+    <Compile Include="src\Systems\WorldGen\0.GenMaps\MapLayer\MapLayerExactZoom.cs" />
+    <Compile Include="src\Systems\WorldGen\0.GenMaps\MapLayer\MapLayerFuzzyZoom.cs" />
+    <Compile Include="src\Systems\WorldGen\0.GenMaps\MapLayer\MapLayerGeoProvince.cs" />
+    <Compile Include="src\Systems\WorldGen\0.GenMaps\MapLayer\MapLayerLandforms.cs" />
+    <Compile Include="src\Systems\WorldGen\0.GenMaps\MapLayer\MapLayerLines.cs" />
+    <Compile Include="src\Systems\WorldGen\0.GenMaps\MapLayer\MapLayerOre.cs" />
+    <Compile Include="src\Systems\WorldGen\0.GenMaps\MapLayer\MapLayerPerlin.cs" />
+    <Compile Include="src\Systems\WorldGen\0.GenMaps\MapLayer\MapLayerPerlinWobble.cs" />
+    <Compile Include="src\Systems\WorldGen\0.GenMaps\MapLayer\MapLayerTransformBase.cs" />
+    <Compile Include="src\Systems\WorldGen\0.GenMaps\MapLayer\MapLayerWobbledForest.cs" />
+    <Compile Include="src\Systems\WorldGen\0.GenMaps\NoiseBase.cs" />
+    <Compile Include="src\Systems\WorldGen\0.GenMaps\NoiseClimatePatchy.cs" />
+    <Compile Include="src\Systems\WorldGen\0.GenMaps\NoiseClimateRealistic.cs" />
+    <Compile Include="src\Systems\WorldGen\0.GenMaps\NoiseGen\WeightedOctavedNoise.cs" />
+    <Compile Include="src\Systems\WorldGen\0.GenMaps\NoiseGeoProvince.cs" />
+    <Compile Include="src\Systems\WorldGen\0.GenMaps\NoiseLandform.cs" />
+    <Compile Include="src\Systems\WorldGen\0.GenMaps\NoiseOre.cs" />
+    <Compile Include="src\Systems\WorldGen\0.GenMaps\NoiseWind.cs" />
+    <Compile Include="src\Systems\WorldGen\1.GenTerra\GenTerra.cs" />
+    <Compile Include="src\Systems\WorldGen\3.GenCaves\GenCaves.cs" />
+    <Compile Include="src\Systems\WorldGen\4.GenBlockLayers\GenBlockLayers.cs" />
+    <Compile Include="src\Systems\WorldGen\8.GenVegetationAndPatches\BlockPatchConfig.cs" />
+    <Compile Include="src\Systems\WorldGen\8.GenVegetationAndPatches\ForestGen\ForestChunk.cs" />
+    <Compile Include="src\Systems\WorldGen\8.GenVegetationAndPatches\ForestGen\ForestConfig.cs" />
+    <Compile Include="src\Systems\WorldGen\8.GenVegetationAndPatches\ForestGen\ForestSupplier.cs" />
+    <Compile Include="src\Systems\WorldGen\8.GenVegetationAndPatches\GenForests.cs" />
+    <Compile Include="src\Systems\WorldGen\8.GenVegetationAndPatches\GenPatches.cs" />
+    <Compile Include="src\Systems\WorldGen\8.GenVegetationAndPatches\TreeGen\TreeBlocks.cs" />
+    <Compile Include="src\Systems\WorldGen\8.GenVegetationAndPatches\TreeGen\TreeGen.cs" />
+    <Compile Include="src\Systems\WorldGen\8.GenVegetationAndPatches\TreeGen\TreeGenBranch.cs" />
+    <Compile Include="src\Systems\WorldGen\8.GenVegetationAndPatches\TreeGen\TreeGenConfig.cs" />
+    <Compile Include="src\Systems\WorldGen\8.GenVegetationAndPatches\TreeGen\TreeGenerators.cs" />
+    <Compile Include="src\Systems\WorldGen\8.GenVegetationAndPatches\TreeGen\TreeGenTrunk.cs" />
+    <Compile Include="src\Systems\WorldGen\DisableVanillaHandlers.cs" />
+    <Compile Include="src\Systems\WorldGen\OldGenPartial.cs" />
+    <Compile Include="src\Systems\WorldGen\WorldMap.cs" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <DisableFastUpToDateCheck>true</DisableFastUpToDateCheck>
+    <PostBuildEvent>
+		
+		"$(SolutionDir)python\modpacker.exe" $(AssemblyName) $(Configuration)
+</PostBuildEvent>
+  </PropertyGroup>
+</Project>

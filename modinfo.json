@@ -1,0 +1,11 @@
+{
+  "type": "code",
+  "modid": "dominions",
+  "name": "dominions",
+  "author": ["archpriest", "codemeister32", "skywarrior"],
+  "description": "Modsuite for dominions server.",
+  "version": "1.0.0",
+  "dependency": {
+    "game": ""
+  }
+}

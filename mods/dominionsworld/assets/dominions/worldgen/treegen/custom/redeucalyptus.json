@@ -1,0 +1,42 @@
+﻿{
+	treeWorldPropertyCode: "redeucalyptus",
+	sizeMultiplier: 1,
+	trunks: [{
+		widthloss: 0.05,
+		dieAt: { avg: 0.3 },
+		capBranch: true,
+		branchStart: { avg: 0.3 },
+		branchSpacing: { avg: 0 },
+		branchWidthMultiplier: { avg: 3 },
+		branchQuantity: { avg: 2 },
+		widthMultiplier: 2,
+		branchVerticalAngle: { avg: 0.25, var: 0.1 },
+		dx: 0,
+		dz: 0,
+	}],
+	branches: [{
+		widthloss: 0.05,
+		dieAt: { avg: 0.25 },
+		branchStart: { avg: 0.5 },
+		branchSpacing: { avg: 0 },
+		capBranch: true,
+		branchQuantity: { avg: 9, var: 2 },
+		branchWidthMultiplier: { avg: 0.5 },
+		branchVerticalAngle: { avg: 0.6, var: 0.3 },
+	}, {
+		widthloss: 0.015,
+		dieAt: { avg: 0 },
+		branchQuantity: { avg: 7 },
+		gravityDrag: 0.1,
+		branchWidthMultiplier: { avg: 0.4 },
+		branchStart: { avg: 0.3 },
+		branchSpacing: { avg: 0.2 }
+	}],
+	treeBlocks: {
+		logBlockCode: "game:log-grown-redeucalyptus-ud",
+		leavesBlockCode: "game:leaves-grown-redeucalyptus",
+		leavesBranchyBlockCode: "game:leavesbranchy-grown-redeucalyptus",
+		vinesBlockCode: "game:wildvine-section-north",
+		vinesEndBlockCode: "game:wildvine-end-north"
+	}
+}

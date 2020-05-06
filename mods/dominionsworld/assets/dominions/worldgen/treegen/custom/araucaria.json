@@ -1,0 +1,41 @@
+﻿{
+    "treeWorldPropertyCode": "araucaria",
+    "sizeMultiplier": 1,
+    "_comment": "Try to not go outside 0.7-1.2 size. Going above will make it wide, going below will not work at all.",
+    "trunks": [
+    {
+        "gravityDrag": 0,
+        "widthloss": 0.02,
+        "dieAt": { "avg": 0.24 },
+        "branchStart": { "avg": 0.75 },
+        "branchSpacing": { "avg": 0.05 },
+        "branchQuantity": {
+        "avg": 20,
+        "var": 5
+        },
+        "branchWidthMultiplier": {
+        "avg": 0.25
+        },
+        "widthMultiplier": 1.5,
+        "branchVerticalAngle": {
+        "avg": 1.5,
+        "var": 0
+        },
+	    branchWidthMultiplierEvolve: { factor: 0.1, transform: "linear" },
+        "girth": 1
+    }
+    ],
+    "branches": [
+    {
+        "gravityDrag": -0.01,
+        "widthLoss": 0.01
+    }
+    ],
+    "treeBlocks": {
+        "logBlockCode": "game:log-grown-pine-ud",
+        "leavesBlockCode": "game:leaves-grown-pine",
+        "leavesBranchyBlockCode": "game:leavesbranchy-grown-pine",
+        "vinesBlockCode": "game:wildvine-section-north",
+        "vinesEndBlockCode": "game:wildvine-end-north"
+    }
+}

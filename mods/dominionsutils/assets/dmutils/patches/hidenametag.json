@@ -1,0 +1,20 @@
+﻿[
+  {
+    "file": "game:entities/humanoid/player",
+    "op": "replace",
+    "path": "/client/behaviors/1",
+    "value": {
+        "code": "nametag",
+        "renderRange": "0"
+    }
+  },
+  {
+    "file": "game:entities/humanoid/player",
+    "op": "replace",
+    "path": "/server/behaviors/1",
+    "value": {
+        "code": "nametag",
+        "renderRange": "0"
+    }
+  }
+]

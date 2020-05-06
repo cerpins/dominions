@@ -1,0 +1,14 @@
+﻿[
+  {
+    "file": "game:worldgen/deposits/soil/clay",
+    "op": "replace",
+    "path": "/0/climate",
+    "value": {}
+  },
+  {
+    "file": "game:worldgen/deposits.json",
+    "op": "replace",
+    "path": "/chanceMultiplier",
+    "value": 0.1
+  }
+]

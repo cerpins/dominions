@@ -1,0 +1,349 @@
+[
+  {
+    "file": "game:blocktypes/stone/ore-gem",
+    "op": "add",
+    "path": "/allowedVariants/-",
+    "value": "ore-low-sapphire-kimberlite"
+  },
+  {
+    "file": "game:blocktypes/stone/ore-gem",
+    "op": "add",
+    "path": "/allowedVariants/-",
+    "value": "ore-low-sapphire-basalt"
+  },
+  {
+    "file": "game:blocktypes/stone/ore-gem",
+    "op": "add",
+    "path": "/allowedVariants/-",
+    "value": "ore-low-sapphire-shale"
+  },
+  {
+    "file": "game:blocktypes/stone/ore-gem",
+    "op": "add",
+    "path": "/allowedVariants/-",
+    "value": "ore-low-sapphire-slate"
+  },
+  {
+    "file": "game:blocktypes/stone/ore-gem",
+    "op": "add",
+    "path": "/allowedVariants/-",
+    "value": "ore-low-sapphire-granite"
+  },
+  {
+    "file": "game:blocktypes/stone/ore-gem",
+    "op": "add",
+    "path": "/allowedVariants/-",
+    "value": "ore-low-sapphire-andesite"
+  },
+
+  {
+    "file": "game:blocktypes/stone/ore-gem",
+    "op": "add",
+    "path": "/allowedVariants/-",
+    "value": "ore-medium-sapphire-kimberlite"
+  },
+  {
+    "file": "game:blocktypes/stone/ore-gem",
+    "op": "add",
+    "path": "/allowedVariants/-",
+    "value": "ore-medium-sapphire-basalt"
+  },
+  {
+    "file": "game:blocktypes/stone/ore-gem",
+    "op": "add",
+    "path": "/allowedVariants/-",
+    "value": "ore-medium-sapphire-slate"
+  },
+
+  {
+    "file": "game:blocktypes/stone/ore-gem",
+    "op": "add",
+    "path": "/allowedVariants/-",
+    "value": "ore-high-sapphire-kimberlite"
+  },
+
+  {
+    "file": "game:blocktypes/stone/ore-ungraded",
+    "op": "add",
+    "path": "requiredMiningTierByType/ore-sapphire-*",
+    "value": 4
+  },
+  {
+    "file": "game:worldproperties/block/ore-gem-cut",
+    "op": "add",
+    "path": "/variants/-",
+    "value": { "Code": "sapphire" }
+  },
+  {
+    "file": "game:worldproperties/block/ore-gem-rough",
+    "op": "add",
+    "path": "/variants/-",
+    "value": { "Code": "sapphire" }
+  },
+
+  {
+    "file": "game:blocktypes/stone/ore-gem",
+    "op": "add",
+    "path": "/allowedVariants/-",
+    "value": "ore-low-citrine-kimberlite"
+  },
+  {
+    "file": "game:blocktypes/stone/ore-gem",
+    "op": "add",
+    "path": "/allowedVariants/-",
+    "value": "ore-low-citrine-basalt"
+  },
+  {
+    "file": "game:blocktypes/stone/ore-gem",
+    "op": "add",
+    "path": "/allowedVariants/-",
+    "value": "ore-low-citrine-granite"
+  },
+  {
+    "file": "game:blocktypes/stone/ore-gem",
+    "op": "add",
+    "path": "/allowedVariants/-",
+    "value": "ore-low-citrine-andesite"
+  },
+
+  {
+    "file": "game:blocktypes/stone/ore-gem",
+    "op": "add",
+    "path": "/allowedVariants/-",
+    "value": "ore-medium-citrine-basalt"
+  },
+  {
+    "file": "game:blocktypes/stone/ore-gem",
+    "op": "add",
+    "path": "/allowedVariants/-",
+    "value": "ore-medium-citrine-andesite"
+  },
+
+  {
+    "file": "game:blocktypes/stone/ore-gem",
+    "op": "add",
+    "path": "/allowedVariants/-",
+    "value": "ore-high-citrine-basalt"
+  },
+  {
+    "file": "game:blocktypes/stone/ore-gem",
+    "op": "add",
+    "path": "/allowedVariants/-",
+    "value": "ore-high-citrine-andesite"
+  },
+
+  {
+    "file": "game:blocktypes/stone/ore-ungraded",
+    "op": "add",
+    "path": "requiredMiningTierByType/ore-citrine-*",
+    "value": 4
+  },
+  {
+    "file": "game:worldproperties/block/ore-gem-cut",
+    "op": "add",
+    "path": "/variants/-",
+    "value": { "Code": "citrine" }
+  },
+  {
+    "file": "game:worldproperties/block/ore-gem-rough",
+    "op": "add",
+    "path": "/variants/-",
+    "value": { "Code": "citrine" }
+  },
+
+  {
+    "file": "game:blocktypes/stone/ore-gem",
+    "op": "add",
+    "path": "/allowedVariants/-",
+    "value": "ore-low-ruby-kimberlite"
+  },
+  {
+    "file": "game:blocktypes/stone/ore-gem",
+    "op": "add",
+    "path": "/allowedVariants/-",
+    "value": "ore-low-ruby-basalt"
+  },
+  {
+    "file": "game:blocktypes/stone/ore-gem",
+    "op": "add",
+    "path": "/allowedVariants/-",
+    "value": "ore-low-ruby-granite"
+  },
+  {
+    "file": "game:blocktypes/stone/ore-gem",
+    "op": "add",
+    "path": "/allowedVariants/-",
+    "value": "ore-low-ruby-peridotite"
+  },
+  {
+    "file": "game:blocktypes/stone/ore-gem",
+    "op": "add",
+    "path": "/allowedVariants/-",
+    "value": "ore-low-ruby-phyllite"
+  },
+  {
+    "file": "game:blocktypes/stone/ore-gem",
+    "op": "add",
+    "path": "/allowedVariants/-",
+    "value": "ore-low-ruby-shale"
+  },
+  {
+    "file": "game:blocktypes/stone/ore-gem",
+    "op": "add",
+    "path": "/allowedVariants/-",
+    "value": "ore-low-ruby-slate"
+  },
+
+  {
+    "file": "game:blocktypes/stone/ore-gem",
+    "op": "add",
+    "path": "/allowedVariants/-",
+    "value": "ore-medium-ruby-granite"
+  },
+  {
+    "file": "game:blocktypes/stone/ore-gem",
+    "op": "add",
+    "path": "/allowedVariants/-",
+    "value": "ore-medium-ruby-slate"
+  },
+  {
+    "file": "game:blocktypes/stone/ore-gem",
+    "op": "add",
+    "path": "/allowedVariants/-",
+    "value": "ore-medium-ruby-peridotite"
+  },
+  {
+    "file": "game:blocktypes/stone/ore-gem",
+    "op": "add",
+    "path": "/allowedVariants/-",
+    "value": "ore-medium-ruby-phyllite"
+  },
+
+  {
+    "file": "game:blocktypes/stone/ore-gem",
+    "op": "add",
+    "path": "/allowedVariants/-",
+    "value": "ore-high-ruby-slate"
+  },
+
+  {
+    "file": "game:blocktypes/stone/ore-ungraded",
+    "op": "add",
+    "path": "requiredMiningTierByType/ore-ruby-*",
+    "value": 4
+  },
+  {
+    "file": "game:worldproperties/block/ore-gem-cut",
+    "op": "add",
+    "path": "/variants/-",
+    "value": { "Code": "ruby" }
+  },
+  {
+    "file": "game:worldproperties/block/ore-gem-rough",
+    "op": "add",
+    "path": "/variants/-",
+    "value": { "Code": "ruby" }
+  },
+
+  {
+    "file": "game:blocktypes/stone/ore-gem",
+    "op": "add",
+    "path": "/allowedVariants/-",
+    "value": "ore-low-amethyst-limestone"
+  },
+  {
+    "file": "game:blocktypes/stone/ore-gem",
+    "op": "add",
+    "path": "/allowedVariants/-",
+    "value": "ore-low-amethyst-shale"
+  },
+  {
+    "file": "game:blocktypes/stone/ore-gem",
+    "op": "add",
+    "path": "/allowedVariants/-",
+    "value": "ore-low-amethyst-kimberlite"
+  },
+  {
+    "file": "game:blocktypes/stone/ore-gem",
+    "op": "add",
+    "path": "/allowedVariants/-",
+    "value": "ore-low-amethyst-slate"
+  },
+  {
+    "file": "game:blocktypes/stone/ore-gem",
+    "op": "add",
+    "path": "/allowedVariants/-",
+    "value": "ore-low-sapphire-phyllite"
+  },
+
+  {
+    "file": "game:blocktypes/stone/ore-gem",
+    "op": "add",
+    "path": "/allowedVariants/-",
+    "value": "ore-medium-amethyst-kimberlite"
+  },
+  {
+    "file": "game:blocktypes/stone/ore-gem",
+    "op": "add",
+    "path": "/allowedVariants/-",
+    "value": "ore-medium-amethyst-slate"
+  },
+  {
+    "file": "game:blocktypes/stone/ore-gem",
+    "op": "add",
+    "path": "/allowedVariants/-",
+    "value": "ore-medium-amethyst-phyllite"
+  },
+
+  {
+    "file": "game:blocktypes/stone/ore-gem",
+    "op": "add",
+    "path": "/allowedVariants/-",
+    "value": "ore-high-amethyst-phyllite"
+  },
+
+  {
+    "file": "game:blocktypes/stone/ore-ungraded",
+    "op": "add",
+    "path": "requiredMiningTierByType/ore-amethyst-*",
+    "value": 4
+  },
+  {
+    "file": "game:worldproperties/block/ore-gem-cut",
+    "op": "add",
+    "path": "/variants/-",
+    "value": { "Code": "amethyst" }
+  },
+  {
+    "file": "game:worldproperties/block/ore-gem-rough",
+    "op": "add",
+    "path": "/variants/-",
+    "value": { "Code": "amethyst" }
+  },
+
+  {
+    "file": "game:blocktypes/stone/ore-gem",
+    "op": "add",
+    "path": "/allowedVariants/-",
+    "value": "ore-high-bauxpearl-bauxite"
+  },
+
+  {
+    "file": "game:blocktypes/stone/ore-ungraded",
+    "op": "add",
+    "path": "requiredMiningTierByType/ore-bauxpearl-*",
+    "value": 4
+  },
+  {
+    "file": "game:worldproperties/block/ore-gem-cut",
+    "op": "add",
+    "path": "/variants/-",
+    "value": { "Code": "bauxpearl" }
+  },
+  {
+    "file": "game:worldproperties/block/ore-gem-rough",
+    "op": "add",
+    "path": "/variants/-",
+    "value": { "Code": "bauxpearl" }
+  }
+]

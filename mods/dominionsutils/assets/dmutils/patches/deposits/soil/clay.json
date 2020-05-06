@@ -1,0 +1,26 @@
+[
+  {
+    "file": "game:worldgen/deposits/rock/clay",
+    "op": "replace",
+    "path": "/0/triesPerChunk",
+    "value": 1
+  },
+  {
+    "file": "game:worldgen/deposits/rock/clay",
+    "op": "replace",
+    "path": "/0/attributes/radius/avg",
+    "value": 96
+  },
+  {
+    "file": "game:worldgen/deposits/rock/clay",
+    "op": "replace",
+    "path": "/1/triesPerChunk",
+    "value": 1
+  },
+  {
+    "file": "game:worldgen/deposits/rock/clay",
+    "op": "replace",
+    "path": "/1/attributes/radius/avg",
+    "value": 112
+  }
+]

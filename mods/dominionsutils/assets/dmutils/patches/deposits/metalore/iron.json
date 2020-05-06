@@ -1,0 +1,20 @@
+[
+  {
+    "file": "game:worldgen/deposits/metalore/iron",
+    "op": "replace",
+    "path": "/0/attributes/radius/avg",
+    "value": 64
+  },
+  {
+    "file": "game:worldgen/deposits/metalore/iron",
+    "op": "replace",
+    "path": "/1/attributes/radius/avg",
+    "value": 64
+  },
+  {
+    "file": "game:worldgen/deposits/metalore/iron",
+    "op": "replace",
+    "path": "/2/attributes/radius/avg",
+    "value": 64
+  }
+]

@@ -1,0 +1,66 @@
+﻿{
+	code: "skull",
+	behaviors: [{name: "UnstableFalling"}],
+	variantgroups: [
+		{ code: "side", loadFromProperties: "abstract/horizontalorientation" }
+	],
+	class: "dmRespawnSkull",
+	entityClass: "dmBERespawnSkull",
+	maxstacksize: 1,
+	creativeinventory: { general: ["*-south"], decorative: ["*-south"] },
+	heldTpIdleAnimation: "holdbothhandslarge", heldTpUseAnimation: "twohandplaceblock",
+	blockmaterial: "Other",
+	shapeByType: { 
+		"*-north": { base: "block/skull/hominid", rotateY: 90 },
+		"*-east": { base: "block/skull/hominid", rotateY: 0 },
+		"*-south": { base: "block/skull/hominid", rotateY: 270 },
+		"*-west": { base: "block/skull/hominid", rotateY: 180 },
+	},
+	texture: { base: "block/skull/hominid" },
+	collisionboxByType: {
+		"*-north": { x1: 0.31, y1: 0, z1: 0.36, x2: 0.66, y2: 0.28, z2: 0.648, rotateY: 90 },
+		"*-east": { x1: 0.31, y1: 0, z1: 0.36, x2: 0.66, y2: 0.28, z2: 0.648, rotateY: 0 },
+		"*-south": { x1: 0.31, y1: 0, z1: 0.36, x2: 0.66, y2: 0.28, z2: 0.648, rotateY: 270 },
+		"*-west": { x1: 0.31, y1: 0, z1: 0.36, x2: 0.66, y2: 0.28, z2: 0.648, rotateY: 180 },
+	},
+	selectionboxByType: {
+		"*-north": { x1: 0.31, y1: 0, z1: 0.36, x2: 0.66, y2: 0.28, z2: 0.648, rotateY: 90 },
+		"*-east": { x1: 0.31, y1: 0, z1: 0.36, x2: 0.66, y2: 0.28, z2: 0.648, rotateY: 0 },
+		"*-south": { x1: 0.31, y1: 0, z1: 0.36, x2: 0.66, y2: 0.28, z2: 0.648, rotateY: 270 },
+		"*-west": { x1: 0.31, y1: 0, z1: 0.36, x2: 0.66, y2: 0.28, z2: 0.648, rotateY: 180 },
+	},
+	guiTransform: {
+		rotation: { x: -11, y: -50, z: 0 },
+		origin: { x: 0.5, y: 0.14, z: 0.5 },
+		scale: 3.13
+	},
+	fpHandTransform: {
+		translation: { x: 0, y: 1.3, z: 0.3 },
+		rotation: { x: -11, y: -2, z: 0 },
+		scale: 3.55
+	},
+	groundTransform: {
+		translation: { x: 0, y: 0.092, z: 0 },
+		rotation: { x: 82, y: -40, z: 0 },
+		origin: { x: 0.5, y: 0, z: 0.5 },
+		scale: 3.24
+	},
+	tpHandTransform: {
+		translation: { x: -0.9, y: -0.59, z: -0.23 },
+		rotation: { x: 117, y: -11, z: -74 },
+		scale: 0.84
+	},
+	lightAbsorption: 0,
+	sidesolid: { all: false },
+	sideopaque: { all: false },
+	replaceable: 90,
+	resistance: 1,
+	rainPermeable: true,
+	materialDensity: 600,
+	sounds: {
+		"place": "block/planks",
+		"hit": "block/planks",
+		"break": "block/planks",
+		"walk": "walk/wood"
+	},
+}

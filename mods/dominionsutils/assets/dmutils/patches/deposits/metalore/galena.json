@@ -1,0 +1,14 @@
+[
+  {
+    "file": "game:worldgen/deposits/metalore/galena",
+    "op": "replace",
+    "path": "/0/attributes/radius/avg",
+    "value": 18
+  },
+  {
+    "file": "game:worldgen/deposits/metalore/galena",
+    "op": "replace",
+    "path": "/0/childDeposits/0/attributes/radius/avg",
+    "value": 9
+  }
+]

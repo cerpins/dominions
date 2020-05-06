@@ -1,0 +1,20 @@
+﻿[
+  {
+    "file": "game:worldgen/structures",
+    "op": "add",
+    "path": "/enabled",
+    "value": "false"
+  },
+  {
+    "file": "game:worldgen/villages",
+    "op": "add",
+    "path": "/enabled",
+    "value": "false"
+  },
+{
+    "file": "game:worldgen/blockpatches",
+    "op": "add",
+    "path": "/enabled",
+    "value": "false"
+  }
+]

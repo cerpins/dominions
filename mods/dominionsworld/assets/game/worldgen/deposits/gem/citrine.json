@@ -1,0 +1,29 @@
+[
+  {
+    "code": "citrine",
+    "triesPerChunk": 40,
+    "withOreMap": true,
+    "handbookPageCode": "item-gem-citrine-rough",
+    "generator": "disc-followsealevel",
+    "attributes": {
+      "inblock": {
+        "code": "rock-*",
+        "name": "rock",
+        "allowedVariants": ["basalt", "kimberlite", "granite", "andesite"]
+      },
+      "placeblock": {
+        "code": "ore-*-citrine-{rock}",
+        "name": "potential",
+        "allowedVariantsByInBlock": {
+          "rock-kimberlite": ["low"],
+          "rock-granite": ["low"],
+          "rock-basalt": ["low", "medium", "high"],
+          "rock-andesite": ["low", "medium", "high"]
+        }
+      },
+      "radius": { "dist": "gaussian", "avg": 2, "var": 1 },
+      "yPosRel": { "dist": "uniform", "avg": 0.1, "var": 0.1 },
+      "thickness": { "dist": "uniform", "avg": 1, "var": 0 }
+    }
+  }
+]

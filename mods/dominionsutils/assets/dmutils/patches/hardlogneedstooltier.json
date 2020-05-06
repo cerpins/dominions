@@ -1,0 +1,27 @@
+﻿[
+  {
+  	  "file": "game:blocktypes/wood/log",
+	  "op": "replace",
+      "path": "/requiredMiningTier",
+      "value": "1"
+  },
+  {
+  	  "file": "game:blocktypes/wood/log",
+	  "op": "add",
+	  "path": "/requiredMiningTierByType",
+      "value": {
+        "*-birch-*": 1,
+        "*-oak-*": 2,
+        "*-maple-*": 2,
+        "*-pine-*": 1,
+        "*-acacia-*": 2,
+        "*-kapok-*": 1,
+
+        "*-baobab-*": 1,
+        "*-ebony-*": 3,
+        "*-redeucalyptus-*": 1,
+        "*-palm-*": 2,
+        "*-willow-*": 1
+      }
+  }
+]

@@ -1,0 +1,11 @@
+{
+  "type": "code",
+  "modid": "dmutils",
+  "name": "dmutils",
+  "authors": ["codemeister32", "Archpriest"],
+  "description": "To be added",
+  "version": "1.0.4",
+  "dependency": {
+    "game": ""
+  }
+}

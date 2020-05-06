@@ -1,0 +1,250 @@
+{
+	code: "mulegoliath",
+	class: "EntityAgent",
+	hitboxSize: { x: 2, y: 2.5 },
+	deadHitboxSize: { x: 3, y: 1.5 },
+	eyeHeight: 2,
+	drops: [],
+	client: {
+		renderer: "Shape",
+		shape: { base: "land/mulegoliath" },
+		texture: { base: "land/mulegoliath" },
+		behaviors: [
+			{ code: "repulseagents" }, 
+			{ code: "controlledphysics", stepHeight: 1.1251 }, 
+			{ code: "floatupwhenstuck", onlyWhenDead: true },
+			{ code: "interpolateposition" }, 
+			{ code: "harvestable" }
+		],
+		animations: [
+			{
+				code: "hurt",
+				animation: "hurt", 
+				animationSpeed: 1,
+				weight: 10,
+				blendMode: "AddAverage" 
+			},
+			{
+				code: "eat",
+				animation: "eat",
+				blendMode: "Add" 
+			},
+			{ 
+				code: "idle", 
+				animation: "idle",
+				blendMode: "AddAverage",
+				easeOutSpeed: 4,
+				animationSpeed: 0.8,
+				triggeredBy: { defaultAnim: true },
+			},
+			{
+				code: "die",
+				animation: "death", 
+				animationSpeed: 1.25,
+				weight: 10,
+				blendMode: "Average",
+				triggeredBy: { onControls: ["dead"] }
+			},
+			{
+				code: "sleep", 
+				animation: "sleep",
+				easeInSpeed: 4,
+				easeOutSpeed: 4,
+				blendMode: "Average", 
+			}
+		]
+	},
+	server: {
+		attributes: {
+			pathfinder: {
+				minTurnAnglePerSec: 520,
+				maxTurnAnglePerSec: 1040
+			}
+		},
+		behaviors: [
+			{ code: "repulseagents" }, 
+			{ code: "controlledphysics", stepHeight: 1.1251 },
+			{ code: "despawn", minPlayerDistance: 8, belowLightLevel: 8, minSeconds: 300 },
+			{ code: "health", currenthealth: 70, maxhealth: 70 },
+			{ code: "deaddecay", hoursToDecay: 96, decayedBlock: "carcass-large" },
+			{ code: "harvestable", drops: [
+					{
+						type: "item", 
+						code: "redmeat-raw", 
+						quantity: { avg: 4, var: 1 } 
+					},
+					{
+						type: "item", 
+						code: "bone", 
+						quantity: { avg: 7, var: 4 } 
+					},
+					{
+						type: "item", 
+						code: "hide-raw-large", 
+						quantity: { avg: 1, var: 0 } 
+					},
+					{
+						type: "item", 
+						code: "salt", 
+						quantity: { avg: 6, var: 3 } 
+					}
+				],
+			},
+			{ code: "floatupwhenstuck", onlyWhenDead: true },
+			{ code: "breathe" },
+			{
+				code: "emotionstates",
+				states: [
+					{ code: "alarmherdondamage", chance: 1, slot: 1, priority: 2, accumType: "noaccum" },
+					{ code: "aggressiveondamage", duration: 10, chance: 1, slot: 2, priority: 4, accumType: "max" },
+					{ code: "fleeondamage", duration: 20, chance: 1, slot: 2, priority: 5, accumType: "noaccum", whenHealthRelBelow: 0.2 }
+				],
+			},
+			{ code: "placeblock", minHourDelay: 192, maxHour: 360, blockCodes: ["egg-chicken-1", "egg-chicken-1", "egg-chicken-1", "egg-chicken-2", "egg-chicken-2", "egg-chicken-3"] }, 
+			{ 
+				code: "taskai",
+				aitasks: [
+					{
+						code: "meleeattack",
+						entityCodes: ["player", "chicken-rooster", "chicken-hen", "chicken-baby", "hare-*"],
+						priority: 3,
+						damage: 10,
+						damageTier: 1,
+						slot: 1,
+						mincooldown: 2000, 
+						maxcooldown: 3000, 
+						attackDurationMs: 1500,
+						damagePlayerAtMs: 1200,
+						animation: "Attack",
+						animationSpeed: 1,
+						alarmHerd: true,
+						sound: "creature/mulegoliath/attack",
+						whenInEmotionState: "aggressiveondamage"
+					},
+					{
+						code: "seekentity",
+						entityCodes: ["player"],
+						priority: 2.1,
+						movespeed: 0.05,
+						seekingRange: 40,
+						maxFollowTime: 10,
+						alarmHerd: true,
+						animation: "Run",
+						animationSpeed: 1.8,
+						sound: "creature/mulegoliath/growl",
+						whenInEmotionState: "aggressiveondamage"
+					},
+					{
+						code: "fleeentity",
+						entityCodes: ["player"],
+						priority: 2.4,
+						movespeed: 0.045,
+						seekingRange: 20,
+						animation: "Run",
+						animationSpeed: 1.6,
+						whenInEmotionState: "fleeondamage"
+					},
+					{
+						code: "getoutofwater",
+						priority: 1.4,
+						movespeed: 0.02,
+						animation: "Run"
+					},
+					{
+						code: "stayclosetoentity",
+						priority: 1.3,
+						entityCode: "mulegoliath",
+						movespeed: 0.03,
+						maxDistance: 10,
+						searchRange: 20,
+						animation: "Run"
+					},
+					{
+						code: "idle",
+						priority: 1.25,
+						minduration: 5000000,
+						maxduration: 5000000,
+						mincooldown: 5000,
+						maxcooldown: 15000,
+						priorityForCancel: 1.38,
+						animation: "Sleep",
+						whenNotInEmotionState: "aggressiveondamage",
+						duringDayTimeFrames: [ { fromHour: 20, toHour: 24 }, { fromHour: 0, toHour: 6 } ],
+						stopRange: 8,
+						stopOnHurt: true
+					},
+					{
+						code: "idle",
+						priority: 1.1,
+						priorityForCancel: 1.35,
+						minduration: 4667,
+						maxduration: 4667,
+						mincooldown: 80000,
+						maxcooldown: 500000,
+						animationSpeed: 0.5,
+						sound: "creature/mulegoliath/howl",
+						soundRange: 250,
+						whenNotInEmotionState: "aggressiveondamage"
+					},
+					{
+						code: "idle",
+						priority: 0.9,
+						minduration: 2000,
+						maxduration: 3000,
+						mincooldown: 3000,
+						maxcooldown: 6000,
+						animationSpeed: 0.6,
+						animation: "Eat",
+						whenNotInEmotionState: "aggressiveondamage",
+						eatSound: "game:player/eat"
+					},
+					{
+						code: "wander", 
+						priority: 1.2, 
+						movespeed: 0.003,
+						animation: "Walk",
+						wanderChance: 0.2,
+						animationSpeed: 0.4,
+						preferredLightLevel: 19
+					},			
+					{ 
+						code: "lookaround", 
+						priority: 0.5
+					}
+				]
+			}
+		],
+		spawnconditions: {
+			worldgen: {
+				TriesPerChunk: { avg: 0.02, var: 0 },
+				tryOnlySurface: true,
+				minLightLevel: 10,
+				minTemp: -60,
+				maxTemp: 60,
+				minRain: 0.1,
+				maxRain: 0.8,
+				groupSize: 6,
+				lightLevelType: "onlyBlockLight",					
+				groupSize: { dist: "gaussian", avg: 7, var: 2 },
+			},
+			runtime: {
+				group: "neutral",
+				tryOnlySurface: true,
+				chance: 0.0012,
+				maxQuantity: 2,
+				minLightLevel: 10,
+				minTemp: -60,
+				maxTemp: 60,
+				minRain: 0.1,
+				maxRain: 0.8,
+				lightLevelType: "onlyBlockLight",					
+				groupSize: { dist: "gaussian", avg: 7, var: 2 },
+			}
+		}
+	},
+	sounds: {
+		hurt: "creature/mulegoliath/hurt",
+		death: "creature/mulegoliath/hurt"
+	},
+	idleSoundChance: 0.03
+}

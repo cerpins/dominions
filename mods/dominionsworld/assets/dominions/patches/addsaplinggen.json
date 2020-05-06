@@ -1,0 +1,22 @@
+﻿[
+    {
+        "file": "game:blocktypes/plant/plaintreesapling",
+        "op": "replace",
+        "path": "/attributes/treeGenByType",
+        "_comment": "dont forget to fix saplings, they dont work",
+        "value": {
+            "*-baobab": "dominions:custom/baobab",
+            "*-ebony": "dominions:custom/ebony",
+            "*-redeucalyptus": "dominions:custom/redeucalyptus",
+            "*-willow": "dominions:custom/willow",
+            "*-palm": "dominions:custom/palm",
+
+            "*-birch": "dominions:vanilla/silverbirch",
+            "*-oak": "dominions:vanilla/englishoak",
+            "*-maple": "dominions:vanilla/sugarmaple",
+            "*-pine": "dominions:vanilla/scotspine",
+            "*-acacia": "dominions:vanilla/acacia",
+            "*-kapok": "dominions:vanilla/kapok"
+        }
+    }
+]

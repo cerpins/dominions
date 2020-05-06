@@ -1,0 +1,21 @@
+﻿[
+    {
+        "file": "game:recipes/grid/firewood",
+        "op": "replace",
+        "path": "/0/ingredients/L/allowedVariants",
+        "value": [
+            "placed-birch-ud",
+            "placed-oak-ud",
+            "placed-maple-ud",
+            "placed-pine-ud",
+            "placed-acacia-ud",
+
+            "placed-baobab-ud",
+            "placed-ebony-ud",
+            "placed-redeucalyptus-ud",
+            "placed-palm-ud",
+            "placed-willow-ud"
+        ]
+        
+    }
+]

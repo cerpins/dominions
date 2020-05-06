@@ -1,0 +1,85 @@
+﻿{
+	treeWorldPropertyCode: "ebony",
+	sizeMultiplier: 1,
+	yOffset: -1,
+	trunks: [{
+		widthloss: 0.05,
+		dieAt: {avg: 0.35, var: 0.15 },
+		dx: 0,
+		dz: 0,
+		branchStart: { avg: 0.5 },
+		branchSpacing: { avg: 0 },
+		branchHorizontalAngle: { avg: 0, var: 3.14 },
+
+		widthMultiplier: 1.5,
+
+		branchWidthMultiplier: {avg: 0.25 },
+
+		branchQuantity: { avg: 5, var: 0.5 },
+		angleVertEvolve: { transform: "linear", factor: 2 },
+		angleHoriEvolve: { transform: "linear", factor: 1.2 },
+
+		angleHori: { avg: 3.1415, var: 0.1 },
+		angleVert: { avg: 0, var: 0.2 }
+	}, 
+	{
+		inherit: { from: 0, skip: ["dx", "dz", "angleHori"] },
+		angleHori: { avg: 1.5707, var: 0.1 },
+		dx: 0,
+		dz: 0
+	}, 
+	{
+		inherit: { from: 0, skip: ["dx", "dz", "angleHori"] },
+		angleHori: { avg: 0, var: 0.1 },
+		dx: 0,
+		dz: 0
+	},
+	{
+		inherit: { from: 0, skip: ["dx", "dz", "angleHori"] },
+		angleHori: { avg: -1.5707, var: 0.1 },
+		dx: 0,
+		dz: 0
+	}, 
+
+	
+	{
+		inherit: { from: 0, skip: ["dx", "dz", "angleHori", "angleVertEvolve", "dieAt"] },
+		dieAt: { avg: 0.62, var: 0.15 },
+		angleVertEvolve: { transform: "quadratic", factor: 1.3 },
+		angleHori: { avg: 2.1415, var: 0.1 },
+		dx: 0,
+		dz: 0
+	}, 
+	{
+		inherit: { from: 0, skip: ["dx", "dz", "angleHori", "angleVertEvolve", "dieAt"] },
+		dieAt: { avg: 0.62, var: 0.15 },
+		angleVertEvolve: { transform: "quadratic", factor: 1.3 },
+		angleHori: { avg: 0, var: 0.1 },
+		dx: 0,
+		dz: 0
+	},
+	{
+		inherit: { from: 0, skip: ["dx", "dz", "angleHori", "angleVertEvolve", "dieAt"] },
+		dieAt: { avg: 0.62, var: 0.15 },
+		angleVertEvolve: { transform: "quadratic", factor: 1.3 },
+		angleHori: { avg: -2.1707, var: 0.1 },
+		dx: 0,
+		dz: 0
+	}],
+
+	branches: [{
+		widthLoss: 0.04,
+		gravityDrag: 0,
+		dieAt: { avg: 0 },
+		branchSpacing: {avg: 0},
+		branchQuantity: { avg: 5, var: 0.5 },
+		branchWidthMultiplier: { avg: 2 }
+	}],
+	treeBlocks: {
+		"logBlockCode": "game:log-grown-ebony-ud",
+		"leavesBlockCode": "game:leaves-grown-ebony",
+		"leavesBranchyBlockCode": "game:leavesbranchy-grown-ebony",
+		"vinesBlockCode": "game:air",
+		"vinesEndBlockCode": "game:air"
+	}
+}

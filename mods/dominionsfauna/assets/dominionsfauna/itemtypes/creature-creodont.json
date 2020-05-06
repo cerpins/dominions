@@ -1,0 +1,34 @@
+﻿{
+	code: "creature-creodont",
+	class: "ItemCreature",
+	maxstacksize: 64,
+	shape: { "base": "land/cassowary" },			
+	texture: { "base": "land/cassowary" },	
+	creativeinventory: { "general": ["*"], "items": ["*"], "creatures": ["*"] },
+	materialDensity: 600,
+	guiTransformByType: {
+		"creature-cassowary": {
+			rotate: true,
+			translation: { x: 0, y: -1.5, z: 0 },
+			rotation: { x: 0, y: -62, z: -180 },
+			origin: { x: 0.5, y: 0.73, z: 0.5 },
+			scale: 0.5
+		}
+	},
+	
+	tpHandTransformByType: {
+		"creature-cassowary": {
+			translation: { x: -3, y: -0.5, z: -0.4 },
+			rotation: { x: 101, y: -24, z: -113 },
+			scale: 0.2
+		}
+	},
+	
+	fpHandTransformByType: {
+		"creature-cassowary": {
+			translation: { x: 0, y: -0.5, z: 0 },
+			rotation: { x: -180, y: -131, z: -180 },
+			scale: 0.5
+		}
+	},
+}

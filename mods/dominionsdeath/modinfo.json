@@ -1,0 +1,11 @@
+{
+  "type": "code",
+  "modid": "dominionsdeath",
+  "name": "dominionsdeath",
+  "author": [ "archpriest", "codemeister" ],
+  "description": "dominionsdeath component for dominions",
+  "version": "1.0.0",
+  "dependency": {
+    "game": ""
+  }
+}

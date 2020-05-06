@@ -1,0 +1,8 @@
+﻿[
+    {
+        "file": "game:worldgen/deposits/gem/amethyst",
+        "op": "replace",
+        "path": "/0/attributes/radius/avg",
+        "value": 2
+    }
+]

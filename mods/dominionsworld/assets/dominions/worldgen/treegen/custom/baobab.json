@@ -1,0 +1,49 @@
+﻿{
+	treeWorldPropertyCode: "baobab",
+	sizeMultiplier: 1,
+	trunks: [{
+		yHardOffset: -3,
+
+		widthloss: 0.03,
+		dieAt: { avg: 0.3 },
+		branchStart: { avg: 0.6, var: 0.1 },
+		capBranch: true,
+		widthMultiplier: 1.4,
+		branchQuantity: { avg: 15, var: 5 },
+		branchHorizontalAngle: { avg: 0, var: 3.14 },
+		branchVerticalAngle: { avg: 1.5, var: 0.5 },
+		branchWidthMultiplier: { avg: 1.5 },
+
+		dx: 0,
+		dz: 0,
+		girth:4,
+		girthEvolve: { transform: "inverselinear", factor: 0.05 },
+		angleVert: {avg: 0, var: 0.15}
+	}],
+	branches: [
+		{
+			angleVertEvolve: { transform: "sinus", factor: 40 },
+			dieAt: { avg: 0.26 },
+			branchQuantity: { "avg": 5 },
+			branchWidthMultiplier: { avg: 1 },
+
+			branchStart: { avg: 0.3 },
+			branchSpacing: { avg: 0.0 },			
+
+			branchVerticalAngle: { avg: 1.2, var: 0.5 },
+			branchHorizontalAngle: { avg: 0, var: 3.1415 },
+			widthLoss: 0.015
+		},
+		{
+			dieAt: { avg: 0, var: 0.1 },
+			widthLoss: 0.06
+		}
+	],
+	treeBlocks: {
+		logBlockCode: "game:log-grown-baobab-ud",
+		leavesBlockCode: "game:leaves-grown-baobab",
+		leavesBranchyBlockCode: "game:leavesbranchy-grown-baobab",
+		vinesBlockCode: "game:wildvine-section-north",
+		vinesEndBlockCode: "game:wildvine-end-north"
+	}
+}

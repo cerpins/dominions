@@ -1,0 +1,38 @@
+{
+  "Code": "wood",
+  "variants": [
+    {
+      "Code": "birch"
+    },
+    {
+      "Code": "oak"
+    },
+    {
+      "Code": "maple"
+    },
+    {
+      "Code": "pine"
+    },
+    {
+      "Code": "acacia"
+    },
+    {
+      "Code": "kapok"
+    },
+    {
+      "Code": "palm"
+    },
+    {
+      "Code": "ebony"
+    },
+    {
+      "Code": "baobab"
+	},
+    {
+      "Code": "willow"
+	},
+    {
+      "Code": "redeucalyptus"
+	}
+  ]
+}

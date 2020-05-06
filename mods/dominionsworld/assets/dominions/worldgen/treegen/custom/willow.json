@@ -1,0 +1,47 @@
+﻿{
+	treeWorldPropertyCode: "willow",
+	sizeMultiplier: 0.8,
+	trunks: [{
+		widthloss: 0.07,
+		dieAt: { avg: 0.3 },
+		branchStart: { avg: 0.3 },
+		capBranch: true,
+		branchQuantity: { avg: 8 },
+		branchWidthMultiplier: { avg: 1.6 },
+		dx: 0,
+		dz: 0,
+		branchVerticalAngle: { avg: 0.5, var: 0 },
+	}, {
+		inherit: { from: 0, skip: ["widthloss", "branchWidthMultiplier", "branchVerticalAngle"] },
+		widthloss: 0.03,
+		branchWidthMultiplier: { avg: 1 },
+		branchVerticalAngle: { avg: 0.3, var: 0 },
+	}, {
+		inherit: { from: 0, skip: ["widthloss", "branchWidthMultiplier", "branchVerticalAngle"] },
+		widthloss: 0.08,
+		branchWidthMultiplier: { avg: 1 },
+		branchVerticalAngle: { avg: 0.8, var: 0 },
+	}],
+	branches: [{
+		widthloss: 0.02,
+		dieAt: { avg: 0 },
+		angleVertEvolve: { factor: 1.5, transform: "quadratic" },
+		branchStart: { avg: 0.5 },
+		branchSpacing: { avg: 0.1},
+		branchQuantity: { avg: 2 },
+		branchWidthMultiplier: { avg: 0.4 },
+		branchVerticalAngle: { avg: 0.8, var: 0 },
+		branchHorizontalAngle: { var: 3.14 },
+	}, {
+		widthLoss: 0.005,
+		gravityDrag: 0.3,
+		dieAt: { avg: 0 },
+	}],
+	treeBlocks: {
+		logBlockCode: "game:log-grown-willow-ud",
+		leavesBlockCode: "game:leaves-grown-willow",
+		leavesBranchyBlockCode: "game:leavesbranchy-grown-willow",
+		vinesBlockCode: "game:wildvine-section-north",
+		vinesEndBlockCode: "game:wildvine-end-north"
+	}
+}

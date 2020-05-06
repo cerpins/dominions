@@ -1,0 +1,30 @@
+﻿[
+  {
+    "file": "game:blocktypes/plant/bigberrybush",
+    "op": "replace",
+    "path": "/dropsByType",
+    "value": {
+      "*": [
+        {
+          "type": "item",
+          "code": "game:stick",
+          "quantity": { "avg": 1, "var": 2 }
+        }
+      ]
+    }
+  },
+  {
+    "file": "game:blocktypes/plant/smallberrybush",
+    "op": "replace",
+    "path": "/dropsByType",
+    "value": {
+      "*": [
+        {
+          "type": "item",
+          "code": "game:stick",
+          "quantity": { "avg": 1, "var": 2 }
+        }
+      ]
+    }
+  }
+]

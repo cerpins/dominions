@@ -1,0 +1,36 @@
+[
+  {
+    "code": "amethyst",
+    "triesPerChunk": 32,
+    "withOreMap": true,
+    "handbookPageCode": "item-gem-amethyst-rough",
+    "generator": "disc-followsealevel",
+    "attributes": {
+      "inblock": {
+        "code": "rock-*",
+        "name": "rock",
+        "allowedVariants": [
+          "limestone",
+          "shale",
+          "kimberlite",
+          "slate",
+          "phyllite"
+        ]
+      },
+      "placeblock": {
+        "code": "ore-*-amethyst-{rock}",
+        "name": "potential",
+        "allowedVariantsByInBlock": {
+          "rock-limestone": ["low"],
+          "rock-shale": ["low"],
+          "rock-kimberlite": ["low", "medium"],
+          "rock-slate": ["low", "medium"],
+          "rock-phyllite": ["low", "medium", "high"]
+        }
+      },
+      "radius": { "dist": "gaussian", "avg": 2, "var": 1 },
+      "yPosRel": { "dist": "uniform", "avg": 0.1, "var": 0.1 },
+      "thickness": { "dist": "uniform", "avg": 1, "var": 0 }
+    }
+  }
+]

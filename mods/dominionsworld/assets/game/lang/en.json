@@ -1,0 +1,42 @@
+{
+  "ore-sapphire": "Sapphire",
+  "item-ore-sapphire": "Sapphire",
+  "item-gem-sapphire-rough": "Rough sapphire",
+  "ore-sapphire-*": "Sapphire",
+  "block-looseores-sapphire-*": "Sapphire bits",
+  "itemdesc-ore-sapphire": "It looks like it holds the sea, yet its riches prove all the different.",
+  "block-ore-*-sapphire-*": "Sapphire",
+
+  "ore-citrine": "Citrine",
+  "item-ore-citrine": "Citrine",
+  "item-gem-citrine-rough": "Rough citrine",
+  "ore-citrine-*": "Citrine",
+  "block-looseores-citrine-*": "Citrine bits",
+  "itemdesc-ore-citrine": "It looks like it tastes of the finest fruits, yet its only flavor is that of its vissage.",
+  "block-ore-*-citrine-*": "Citrine",
+
+  "ore-ruby": "Ruby",
+  "item-ore-ruby": "Ruby",
+  "item-gem-ruby-rough": "Rough ruby",
+  "ore-ruby-*": "Ruby",
+  "block-looseores-ruby-*": "Ruby bits",
+  "itemdesc-ore-ruby": "It looks like it was baked in blood, yet it shines with a noble gleam.",
+  "block-ore-*-ruby-*": "Ruby",
+
+  "ore-amethyst": "Amethyst",
+  "item-ore-amethyst": "Amethyst",
+  "item-gem-amethyst-rough": "Rough amethyst",
+  "ore-amethyst-*": "Amethyst",
+  "block-looseores-amethyst-*": "Amethyst bits",
+  "itemdesc-ore-amethyst": "It looks as though a great empire could be built on its glow, yet are those who wear it truly noble?",
+  "block-ore-*-amethyst-*": "Amethyst",
+
+  "ore-bauxpearl": "Baux Pearl",
+  "item-ore-bauxpearl": "Baux Pearl",
+  "item-gem-bauxpearl-rough": "Rough Baux Pearl",
+  "block-pearl-bauxpearl": "Baux Pearl",
+  "ore-bauxpearl-*": "Bauxpearl",
+  "block-looseores-bauxpearl-*": "Bauxpearl bits",
+  "itemdesc-ore-bauxpearl": "Its like a great pearl of the ocean, yet who can tell what clam made it?",
+  "block-ore-*-bauxpearl-*": "Bauxpearl"
+}

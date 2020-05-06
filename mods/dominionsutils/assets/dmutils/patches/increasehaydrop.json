@@ -1,0 +1,13 @@
+﻿[
+  {
+    "file": "game:blocktypes/plant/tallgrass",
+    "op": "replace",
+    "path": "/drops/0",
+    "value": { 
+        type: "item", 
+        code: "drygrass", 
+        quantity: { avg: 2, "var": 1 }, 
+        tool: "knife"  
+    },
+  }
+]

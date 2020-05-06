@@ -1,0 +1,68 @@
+﻿[
+  {
+    "file": "game:itemtypes/wearable/arm",
+    "op": "add",
+    "path": "/enabled",
+    "value": "false"
+  },
+  {
+    "file": "game:itemtypes/wearable/emblem",
+    "op": "add",
+    "path": "/enabled",
+    "value": "false"
+  },
+  {
+    "file": "game:itemtypes/wearable/foot",
+    "op": "add",
+    "path": "/enabled",
+    "value": "false"
+  },
+  {
+    "file": "game:itemtypes/wearable/hand",
+    "op": "add",
+    "path": "/enabled",
+    "value": "false"
+  },
+  {
+    "file": "game:itemtypes/wearable/head",
+    "op": "add",
+    "path": "/enabled",
+    "value": "false"
+  },
+  {
+    "file": "game:itemtypes/wearable/lowerbody",
+    "op": "add",
+    "path": "/enabled",
+    "value": "false"
+  },
+  {
+    "file": "game:itemtypes/wearable/neck",
+    "op": "add",
+    "path": "/enabled",
+    "value": "false"
+  },
+  {
+    "file": "game:itemtypes/wearable/shoulder",
+    "op": "add",
+    "path": "/enabled",
+    "value": "false"
+  },
+  {
+    "file": "game:itemtypes/wearable/upperbody",
+    "op": "add",
+    "path": "/enabled",
+    "value": "false"
+  },
+  {
+    "file": "game:itemtypes/wearable/upperbodyover",
+    "op": "add",
+    "path": "/enabled",
+    "value": "false"
+  },
+  {
+    "file": "game:itemtypes/wearable/waist",
+    "op": "add",
+    "path": "/enabled",
+    "value": "false"
+  }
+]

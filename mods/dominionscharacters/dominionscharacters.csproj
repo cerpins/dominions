@@ -1,0 +1,219 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{A3C22F81-A44E-4923-828C-37CD8AFF5C6B}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>dominionscharacters</RootNamespace>
+    <AssemblyName>dominionscharacters</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\..\bin\Debug\dominionscharacters\</OutputPath>
+    <IntermediateOutputPath>..\..\obj\Debug\dominionscharacters\</IntermediateOutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>..\..\bin\Release\dominionscharacters\</OutputPath>
+    <IntermediateOutputPath>..\..\obj\Release\dominionscharacters\</IntermediateOutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <DefaultItemExcludes>$(DefaultItemExcludes);*.csproj*</DefaultItemExcludes>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="protobuf-net, Version=2.1.0.0, Culture=neutral, PublicKeyToken=257b51d87d2e4d67, processorArchitecture=MSIL" />
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+    <Reference Include="VintagestoryAPI">
+      <HintPath>$(AppData)\Vintagestory\VintagestoryAPI.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="VSSurvivalMod">
+      <HintPath>$(AppData)\Vintagestory\Mods\VSSurvivalMod.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="VSEssentials">
+      <HintPath>$(AppData)\Vintagestory\Mods\VSEssentials.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="VSCreativeMod">
+      <HintPath>$(AppData)\Vintagestory\Mods\VSCreativeMod.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>$(AppData)\Vintagestory\Lib\Newtonsoft.Json.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="assets\characters\textures\entity\skin\eyes\brown.png" />
+    <Content Include="assets\characters\textures\entity\skin\eyes\dark-brown.png" />
+    <Content Include="assets\characters\textures\entity\skin\eyes\dark-green.png" />
+    <Content Include="assets\characters\textures\entity\skin\eyes\deep-blue.png" />
+    <Content Include="assets\characters\textures\entity\skin\eyes\default.png" />
+    <Content Include="assets\characters\textures\entity\skin\eyes\grey.png" />
+    <Content Include="assets\characters\textures\entity\skin\eyes\light-blue.png" />
+    <Content Include="assets\characters\textures\entity\skin\eyes\light-brown.png" />
+    <Content Include="assets\characters\textures\entity\skin\eyes\light-green.png" />
+    <Content Include="assets\characters\textures\entity\skin\eyes\milky.png" />
+    <Content Include="assets\characters\textures\entity\skin\facialhairs\five-black.png" />
+    <Content Include="assets\characters\textures\entity\skin\facialhairs\five-blonde.png" />
+    <Content Include="assets\characters\textures\entity\skin\facialhairs\five-brown.png" />
+    <Content Include="assets\characters\textures\entity\skin\facialhairs\five-dark-blonde.png" />
+    <Content Include="assets\characters\textures\entity\skin\facialhairs\five-dark-brown.png" />
+    <Content Include="assets\characters\textures\entity\skin\facialhairs\five-grey.png" />
+    <Content Include="assets\characters\textures\entity\skin\facialhairs\five-red.png" />
+    <Content Include="assets\characters\textures\entity\skin\facialhairs\five-white.png" />
+    <Content Include="assets\characters\textures\entity\skin\facialhairs\four-black.png" />
+    <Content Include="assets\characters\textures\entity\skin\facialhairs\four-blonde.png" />
+    <Content Include="assets\characters\textures\entity\skin\facialhairs\four-brown.png" />
+    <Content Include="assets\characters\textures\entity\skin\facialhairs\four-dark-blonde.png" />
+    <Content Include="assets\characters\textures\entity\skin\facialhairs\four-dark-brown.png" />
+    <Content Include="assets\characters\textures\entity\skin\facialhairs\four-grey.png" />
+    <Content Include="assets\characters\textures\entity\skin\facialhairs\four-red.png" />
+    <Content Include="assets\characters\textures\entity\skin\facialhairs\four-white.png" />
+    <Content Include="assets\characters\textures\entity\skin\facialhairs\full-black.png" />
+    <Content Include="assets\characters\textures\entity\skin\facialhairs\full-blonde.png" />
+    <Content Include="assets\characters\textures\entity\skin\facialhairs\full-brown.png" />
+    <Content Include="assets\characters\textures\entity\skin\facialhairs\full-dark-blonde.png" />
+    <Content Include="assets\characters\textures\entity\skin\facialhairs\full-dark-brown.png" />
+    <Content Include="assets\characters\textures\entity\skin\facialhairs\full-grey.png" />
+    <Content Include="assets\characters\textures\entity\skin\facialhairs\full-red.png" />
+    <Content Include="assets\characters\textures\entity\skin\facialhairs\full-white.png" />
+    <Content Include="assets\characters\textures\entity\skin\facialhairs\six-black.png" />
+    <Content Include="assets\characters\textures\entity\skin\facialhairs\six-blonde.png" />
+    <Content Include="assets\characters\textures\entity\skin\facialhairs\six-brown.png" />
+    <Content Include="assets\characters\textures\entity\skin\facialhairs\six-dark-blonde.png" />
+    <Content Include="assets\characters\textures\entity\skin\facialhairs\six-dark-brown.png" />
+    <Content Include="assets\characters\textures\entity\skin\facialhairs\six-grey.png" />
+    <Content Include="assets\characters\textures\entity\skin\facialhairs\six-red.png" />
+    <Content Include="assets\characters\textures\entity\skin\facialhairs\six-white.png" />
+    <Content Include="assets\characters\textures\entity\skin\facialhairs\three-black.png" />
+    <Content Include="assets\characters\textures\entity\skin\facialhairs\three-blonde.png" />
+    <Content Include="assets\characters\textures\entity\skin\facialhairs\three-brown.png" />
+    <Content Include="assets\characters\textures\entity\skin\facialhairs\three-dark-blonde.png" />
+    <Content Include="assets\characters\textures\entity\skin\facialhairs\three-dark-brown.png" />
+    <Content Include="assets\characters\textures\entity\skin\facialhairs\three-grey.png" />
+    <Content Include="assets\characters\textures\entity\skin\facialhairs\three-red.png" />
+    <Content Include="assets\characters\textures\entity\skin\facialhairs\three-white.png" />
+    <Content Include="assets\characters\textures\entity\skin\facialhairs\two-black.png" />
+    <Content Include="assets\characters\textures\entity\skin\facialhairs\two-blonde.png" />
+    <Content Include="assets\characters\textures\entity\skin\facialhairs\two-brown.png" />
+    <Content Include="assets\characters\textures\entity\skin\facialhairs\two-dark-blonde.png" />
+    <Content Include="assets\characters\textures\entity\skin\facialhairs\two-dark-brown.png" />
+    <Content Include="assets\characters\textures\entity\skin\facialhairs\two-grey.png" />
+    <Content Include="assets\characters\textures\entity\skin\facialhairs\two-red.png" />
+    <Content Include="assets\characters\textures\entity\skin\facialhairs\two-white.png" />
+    <Content Include="assets\characters\textures\entity\skin\hairs\five-black.png" />
+    <Content Include="assets\characters\textures\entity\skin\hairs\five-blonde.png" />
+    <Content Include="assets\characters\textures\entity\skin\hairs\five-brown.png" />
+    <Content Include="assets\characters\textures\entity\skin\hairs\five-dark-blonde.png" />
+    <Content Include="assets\characters\textures\entity\skin\hairs\five-dark-brown.png" />
+    <Content Include="assets\characters\textures\entity\skin\hairs\five-grey.png" />
+    <Content Include="assets\characters\textures\entity\skin\hairs\five-red.png" />
+    <Content Include="assets\characters\textures\entity\skin\hairs\five-white.png" />
+    <Content Include="assets\characters\textures\entity\skin\hairs\four-black.png" />
+    <Content Include="assets\characters\textures\entity\skin\hairs\four-blonde.png" />
+    <Content Include="assets\characters\textures\entity\skin\hairs\four-brown.png" />
+    <Content Include="assets\characters\textures\entity\skin\hairs\four-dark-blonde.png" />
+    <Content Include="assets\characters\textures\entity\skin\hairs\four-dark-brown.png" />
+    <Content Include="assets\characters\textures\entity\skin\hairs\four-grey.png" />
+    <Content Include="assets\characters\textures\entity\skin\hairs\four-red.png" />
+    <Content Include="assets\characters\textures\entity\skin\hairs\four-white.png" />
+    <Content Include="assets\characters\textures\entity\skin\hairs\m-black.png" />
+    <Content Include="assets\characters\textures\entity\skin\hairs\m-blonde.png" />
+    <Content Include="assets\characters\textures\entity\skin\hairs\m-brown.png" />
+    <Content Include="assets\characters\textures\entity\skin\hairs\m-dark-blonde.png" />
+    <Content Include="assets\characters\textures\entity\skin\hairs\m-dark-brown.png" />
+    <Content Include="assets\characters\textures\entity\skin\hairs\m-grey.png" />
+    <Content Include="assets\characters\textures\entity\skin\hairs\m-red.png" />
+    <Content Include="assets\characters\textures\entity\skin\hairs\m-white.png" />
+    <Content Include="assets\characters\textures\entity\skin\hairs\seven-black.png" />
+    <Content Include="assets\characters\textures\entity\skin\hairs\seven-blonde.png" />
+    <Content Include="assets\characters\textures\entity\skin\hairs\seven-brown.png" />
+    <Content Include="assets\characters\textures\entity\skin\hairs\seven-dark-blonde.png" />
+    <Content Include="assets\characters\textures\entity\skin\hairs\seven-dark-brown.png" />
+    <Content Include="assets\characters\textures\entity\skin\hairs\seven-grey.png" />
+    <Content Include="assets\characters\textures\entity\skin\hairs\seven-red.png" />
+    <Content Include="assets\characters\textures\entity\skin\hairs\seven-white.png" />
+    <Content Include="assets\characters\textures\entity\skin\hairs\six-black.png" />
+    <Content Include="assets\characters\textures\entity\skin\hairs\six-blonde.png" />
+    <Content Include="assets\characters\textures\entity\skin\hairs\six-brown.png" />
+    <Content Include="assets\characters\textures\entity\skin\hairs\six-dark-blonde.png" />
+    <Content Include="assets\characters\textures\entity\skin\hairs\six-dark-brown.png" />
+    <Content Include="assets\characters\textures\entity\skin\hairs\six-grey.png" />
+    <Content Include="assets\characters\textures\entity\skin\hairs\six-red.png" />
+    <Content Include="assets\characters\textures\entity\skin\hairs\six-white.png" />
+    <Content Include="assets\characters\textures\entity\skin\hairs\three-black.png" />
+    <Content Include="assets\characters\textures\entity\skin\hairs\three-blonde.png" />
+    <Content Include="assets\characters\textures\entity\skin\hairs\three-brown.png" />
+    <Content Include="assets\characters\textures\entity\skin\hairs\three-dark-blonde.png" />
+    <Content Include="assets\characters\textures\entity\skin\hairs\three-dark-brown.png" />
+    <Content Include="assets\characters\textures\entity\skin\hairs\three-grey.png" />
+    <Content Include="assets\characters\textures\entity\skin\hairs\three-red.png" />
+    <Content Include="assets\characters\textures\entity\skin\hairs\three-white.png" />
+    <Content Include="assets\characters\textures\entity\skin\hairs\two-black.png" />
+    <Content Include="assets\characters\textures\entity\skin\hairs\two-blonde.png" />
+    <Content Include="assets\characters\textures\entity\skin\hairs\two-brown.png" />
+    <Content Include="assets\characters\textures\entity\skin\hairs\two-dark-blonde.png" />
+    <Content Include="assets\characters\textures\entity\skin\hairs\two-dark-brown.png" />
+    <Content Include="assets\characters\textures\entity\skin\hairs\two-grey.png" />
+    <Content Include="assets\characters\textures\entity\skin\hairs\two-red.png" />
+    <Content Include="assets\characters\textures\entity\skin\hairs\two-white.png" />
+    <Content Include="assets\characters\textures\entity\skin\skins\female\brown.png" />
+    <Content Include="assets\characters\textures\entity\skin\skins\female\light-brown.png" />
+    <Content Include="assets\characters\textures\entity\skin\skins\female\olive.png" />
+    <Content Include="assets\characters\textures\entity\skin\skins\female\pale.png" />
+    <Content Include="assets\characters\textures\entity\skin\skins\female\tan.png" />
+    <Content Include="assets\characters\textures\entity\skin\skins\female\yellow.png" />
+    <Content Include="assets\characters\textures\entity\skin\skins\male\brown.png" />
+    <Content Include="assets\characters\textures\entity\skin\skins\male\light-brown.png" />
+    <Content Include="assets\characters\textures\entity\skin\skins\male\olive.png" />
+    <Content Include="assets\characters\textures\entity\skin\skins\male\pale.png" />
+    <Content Include="assets\characters\textures\entity\skin\skins\male\tan.png" />
+    <Content Include="assets\characters\textures\entity\skin\skins\male\yellow.png" />
+    <Content Include="modinfo.json" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="assets\characters\patches\player-patch.json" />
+    <None Include="assets\characters\shapes\entities\humanoid\dwarf.json" />
+    <None Include="README.md" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="src\Core.cs" />
+    <Compile Include="src\EntityRenderer\EntityCharacterSkinRenderer.cs" />
+    <Compile Include="src\EnumSkinPart.cs" />
+    <Compile Include="src\Gui\GuiDialogSkin.cs" />
+    <Compile Include="src\Network\ClientSkinNetwork.cs" />
+    <Compile Include="src\Network\ProtoContracts\SkinChange.cs" />
+    <Compile Include="src\Network\ServerSkinNetwork.cs" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <DisableFastUpToDateCheck>true</DisableFastUpToDateCheck>
+    <PostBuildEvent>
+		
+		"$(SolutionDir)python\modpacker.exe" $(AssemblyName) $(Configuration)
+</PostBuildEvent>
+  </PropertyGroup>
+</Project>

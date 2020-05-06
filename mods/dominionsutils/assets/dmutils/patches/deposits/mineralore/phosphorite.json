@@ -1,0 +1,8 @@
+[
+  {
+    "file": "game:worldgen/deposits/mineralore/phosphorite",
+    "op": "replace",
+    "path": "/0/attributes/radius/avg",
+    "value": 24
+  }
+]

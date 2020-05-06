@@ -1,0 +1,11 @@
+{
+  "type": "code",
+  "modid": "dominionscharacters",
+  "name": "dominionscharacters",
+  "author": [ "archpriest", "codemeister" ],
+  "description": "dominionscharacters component for dominions",
+  "version": "1.0.0",
+  "dependency": {
+    "game": ""
+  }
+}

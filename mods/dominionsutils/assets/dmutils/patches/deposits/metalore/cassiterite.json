@@ -1,0 +1,20 @@
+[
+  {
+    "file": "game:worldgen/deposits/metalore/cassiterite",
+    "op": "replace",
+    "path": "/0/attributes/radius/avg",
+    "value": 9
+  },
+  {
+    "file": "game:worldgen/deposits/metalore/cassiterite",
+    "op": "replace",
+    "path": "/1/attributes/radius/avg",
+    "value": 12
+  },
+  {
+    "file": "game:worldgen/deposits/metalore/cassiterite",
+    "op": "replace",
+    "path": "/2/attributes/radius/avg",
+    "value": 36
+  }
+]

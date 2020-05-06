@@ -1,0 +1,32 @@
+{
+	treeWorldPropertyCode: "stub",
+	sizeMultiplier: 0.5,
+	trunks: [{
+		widthloss: 0.01,
+		dieAt: { avg: 0 },
+		branchStart: { avg: 0.3, var: 0.1 },
+		branchSpacing: { avg: 0 },
+		branchWidthMultiplier: { avg: 0.1 },
+		branchQuantity: { avg: 20, var: 3 },
+		branchVerticalAngle: { avg: 1.54, var: 0.1 },
+		branchWidthMultiplierEvolve: { factor: 0.1, transform: "linear" },
+		dx: 0,
+		dz: 0,
+	}],
+	branches: [{
+		widthloss: 0.001,
+		dieAt: { avg: 0 },
+		gravityDrag: 0.1,
+		capBranch: true,
+		branchWidthMultiplier: { avg: 0 },
+		branchStart: { avg: 0.03 },
+		branchSpacing: { avg: 0 }
+	}],
+	treeBlocks: {
+		logBlockCode: "game:log-grown-willow-ud",
+		leavesBlockCode: "game:leaves-grown-willow",
+		leavesBranchyBlockCode: "game:leavesbranchy-grown-willow",
+		vinesBlockCode: "game:wildvine-section-north",
+		vinesEndBlockCode: "game:wildvine-end-north"
+	}
+}
