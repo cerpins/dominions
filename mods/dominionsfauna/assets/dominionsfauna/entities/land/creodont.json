@@ -122,7 +122,7 @@
 					},
 					{
 						code: "fleeentity",
-						entityCodes: ["player", "wolf-male", "wolf-female"],
+						entityCodes: ["wolf-male", "wolf-female"],
 						priority: 2,
 						movespeed: 0.07,
 						seekingRange: 12,
@@ -253,8 +253,8 @@
 				maxTemp: 55,
 				minRain: 0.25,
 				minForestOrShrubs: 0.25,
-				maxForest: 0.75,
-				maxShrubs: 0.75
+				maxForest: 1,
+				maxShrubs: 1
 			},
 			runtime: {
 				group: "neutral",
@@ -270,8 +270,8 @@
 				maxTemp: 55,
 				minRain: 0.25,
 				minForestOrShrubs: 0.25,
-				maxForest: 0.75,
-				maxShrubs: 0.75
+				maxForest: 1,
+				maxShrubs: 1
 			}
 		}
 	},

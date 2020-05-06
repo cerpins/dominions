@@ -85,6 +85,7 @@
     <None Include="assets\dominionsfauna\itemtypes\creature-cassowary.json" />
     <None Include="assets\dominionsfauna\itemtypes\creature-creodont.json" />
     <None Include="assets\dominionsfauna\itemtypes\creature-mulegoliath.json" />
+    <None Include="assets\dominionsfauna\lang\en.json" />
     <None Include="assets\dominionsfauna\shapes\land\cassowary.json" />
     <None Include="assets\dominionsfauna\shapes\land\creodont.json" />
     <None Include="assets\dominionsfauna\shapes\land\mulegoliath.json" />

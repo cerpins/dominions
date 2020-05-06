@@ -2,8 +2,8 @@
 	code: "creature-creodont",
 	class: "ItemCreature",
 	maxstacksize: 64,
-	shape: { "base": "land/cassowary" },			
-	texture: { "base": "land/cassowary" },	
+	shape: { "base": "land/creodont" },			
+	texture: { "base": "land/creodont" },	
 	creativeinventory: { "general": ["*"], "items": ["*"], "creatures": ["*"] },
 	materialDensity: 600,
 	guiTransformByType: {
