@@ -257,6 +257,7 @@
     <None Include="assets\dominions\worldgen\treegen\vanilla\truemulga.json" />
     <None Include="assets\dominions\worldgen\treegen\vanilla\vineykapok.json" />
     <None Include="assets\game\blocktypes\liquid\saltwater.json" />
+    <None Include="assets\game\itemtypes\liquid\saltwaterportion.json" />
     <None Include="assets\game\lang\en.json" />
     <None Include="assets\game\patches\addcustomores.json" />
     <None Include="assets\game\shapes\block\plant\sapling\plaintree\baobab.json" />
