@@ -13,37 +13,34 @@ using Vintagestory.API.Datastructures;
 using Vintagestory.API.MathTools;
 using Vintagestory.API.Server;
 
+
 namespace dmplayer.src
 {
     public class DeathBehavior : EntityBehavior
     {
         // utility constants
-        private static double secondsInHr = 3600;
+        public double secondsInHr = 3600;
 
-        // Respawn time after death
-        private static double hoursUntilRespawn = 1;
-
+        // Respawn time after death 
+        public double hoursUntilRespawn = 24;
         // How often we try respawn
-        private static int tryRespawnMs = 1000;
+        int tryRespawnMs = 1000;
 
         // Double timeout on death
-        private static string attrSpawnTime = "dmSpawnTime";
-
+        static string attrSpawnTime = "dmSpawnTime";
         // Bool toggle whether to not set new spawn location on next respawn
-        private static string attrRelocate = "dmRelocate";
-
+        static string attrRelocate = "dmRelocate";
         // Bool true if converting from alive to spectator
-        private static string attrDied = "dmDied";
-
+        static string attrDied = "dmDied";
         // Double time last respawn
-        private static string attrLastSpawn = "dmLastSpawn";
+        static string attrLastSpawn = "dmLastSpawn";
 
         // -1 if alive, 0 so your first spawn consumes a timer and spawns you normally
-        private static double aliveSpawnTime = -1;
+        static double aliveSpawnTime = -1;
 
-        private long tryRespawnListener;
-        private ICoreServerAPI sApi;
-        private EntityPlayer entityPlayer;
+        long tryRespawnListener;
+        ICoreServerAPI sApi;
+        EntityPlayer entityPlayer;
 
         public double SpawnTime
         {
@@ -55,7 +52,6 @@ namespace dmplayer.src
             }
             set { entity.Attributes.SetDouble(attrSpawnTime, value); }
         }
-
         public bool Relocate
         {
             get
@@ -66,7 +62,6 @@ namespace dmplayer.src
             }
             set { entity.Attributes.SetBool(attrRelocate, value); }
         }
-
         public bool Died
         {
             get
@@ -77,7 +72,6 @@ namespace dmplayer.src
             }
             set { entity.Attributes.SetBool(attrDied, value); }
         }
-
         public double LastSpawn
         {
             get
@@ -88,10 +82,7 @@ namespace dmplayer.src
             }
             set { entity.Attributes.SetDouble(attrLastSpawn, value); }
         }
-
-        public DeathBehavior(Entity entity) : base(entity)
-        {
-        }
+        public DeathBehavior(Entity entity) : base(entity) { }
 
         public override void Initialize(EntityProperties properties, JsonObject attributes)
         {
@@ -114,30 +105,28 @@ namespace dmplayer.src
             sApi.World.UnregisterGameTickListener(tryRespawnListener);
         }
 
-        public override void OnGameTick(float deltaTime)
-        {
-            entityPlayer.CameraPos.Add(0, 50, 0);
-        }
-
         public override void OnEntityReceiveDamage(DamageSource damageSource, float damage)
         {
+            // For some reason, player is still flying when this executes on server
+
             if (damageSource.Source != EnumDamageSource.Revive) return; // Only on respawn
             Died = false; // Death handled
 
             IServerPlayer player = (IServerPlayer)entityPlayer.Player;
+            double totalTime = GetTimeInSeconds();
 
-            if (SpawnTime > sApi.World.Calendar.TotalHours)
+            if (SpawnTime > totalTime)
             {
                 // Timer not expired, spectate
-                player.WorldData.CurrentGameMode = EnumGameMode.Spectator;
+                sApi.InjectConsole("/gamemode " + player.PlayerName + " 3");
                 player.WorldData.MoveSpeedMultiplier = 0.5f;
             }
             else
             {
-                LastSpawn = sApi.World.Calendar.TotalHours;
+                LastSpawn = totalTime;
                 SpawnTime = aliveSpawnTime;
 
-                player.WorldData.CurrentGameMode = EnumGameMode.Survival;
+                sApi.InjectConsole("/gamemode " + player.PlayerName + " 1");
                 player.WorldData.MoveSpeedMultiplier = 1f;
             }
 
@@ -146,20 +135,27 @@ namespace dmplayer.src
             base.OnEntityReceiveDamage(damageSource, damage);
         }
 
+        public int GetTimeInSeconds()
+        {
+            int unixTime = (int)DateTime.UtcNow.Subtract(new DateTime(1970, 1, 1)).TotalSeconds;
+            return unixTime;
+        }
+
         public override void OnEntityDeath(DamageSource damageSourceForDeath)
         {
             IServerPlayer player = (IServerPlayer)entityPlayer.Player;
-
-            double totalHours = sApi.World.Calendar.TotalHours;
             BlockPos spawnPos = entity.ServerPos.AsBlockPos;
+
+            double totalTime = GetTimeInSeconds();
 
             if (SpawnTime == aliveSpawnTime) // Died
             {
-                double time = Util.ToGameTime(sApi.World.Calendar, hoursUntilRespawn);
-                SpawnTime = totalHours + time;
+                double time = hoursUntilRespawn * secondsInHr;
+                SpawnTime = totalTime + time;
+
                 Died = true;
             }
-            else if (SpawnTime < totalHours) // Will respawn
+            else if (SpawnTime < totalTime) // Will respawn
             {
                 spawnPos = sApi.World.DefaultSpawnPosition.AsBlockPos;
             }
@@ -179,20 +175,33 @@ namespace dmplayer.src
             return "dmDeathBehavior";
         }
 
-        private void TryRespawn(float dt)
+        public void DoRespawn()
         {
-            if (entity.Alive && SpawnTime != aliveSpawnTime && SpawnTime < sApi.World.Calendar.TotalHours)
+            if (entity.Alive && SpawnTime != aliveSpawnTime)
+            {
+                SpawnTime = GetTimeInSeconds() - 1;
+                entity.Die();
+            }
+        }
+
+        void TryRespawn(float dt)
+        {
+            double totalTime = GetTimeInSeconds();
+            if (entity.Alive && SpawnTime != aliveSpawnTime && SpawnTime < totalTime)
             {
                 entity.Die();
             }
         }
     }
 
-    internal class Register : ModSystem
+    class Register : ModSystem
     {
+        ICoreAPI api;
+
         public override void Start(ICoreAPI api)
         {
             base.Start(api);
+            this.api = api;
 
             api.World.Logger.Event("Loading DMPLAYER");
             api.RegisterEntityBehaviorClass("dmDeathBehavior", typeof(DeathBehavior));
@@ -200,10 +209,64 @@ namespace dmplayer.src
             if (api.Side.IsClient()) return;
             ICoreServerAPI sApi = (ICoreServerAPI)api;
 
-            sApi.RegisterCommand("respawn", "Remaining time to spawn", "", cmdRespawn);
+            sApi.RegisterCommand("respawn", "Remaining time to spawn", "", CmdRespawn);
+            sApi.RegisterCommand("spawnsingle", "Spawn a player", "", CmdSpawnSingle, Privilege.gamemode);
+            sApi.RegisterCommand("spawnall", "Spawn all players", "", CmdSpawnAll, Privilege.gamemode);
         }
 
-        private void cmdRespawn(IServerPlayer player, int groupId, CmdArgs args)
+        private void CmdSpawnAll(IServerPlayer player, int groupId, CmdArgs args)
+        {
+            string msg = "Spawned all players";
+
+            if (!(api is ICoreServerAPI)) return;
+            ICoreServerAPI sapi = (ICoreServerAPI)api;
+
+            IPlayer[] players = sapi.World.AllPlayers;
+            foreach (IPlayer target in players)
+            {
+                IServerPlayer found = (IServerPlayer)target;
+                DeathBehavior behavior = found.Entity.GetBehavior<DeathBehavior>();
+                if (behavior == null) return;
+
+                behavior.DoRespawn();
+            }
+
+            player.SendMessage(GlobalConstants.AllChatGroups, msg, EnumChatType.Notification);
+        }
+
+        void CmdSpawnSingle(IServerPlayer player, int groupId, CmdArgs args)
+        {
+            string msg = "Failed to find player";
+            if (args.Length != 1)
+            {
+                msg = "Wrong amount of args passed";
+                player.SendMessage(GlobalConstants.AllChatGroups, msg, EnumChatType.Notification);
+                return;
+            }
+
+            if (!(api is ICoreServerAPI)) return;
+            ICoreServerAPI sapi = (ICoreServerAPI)api;
+
+            IPlayer[] players = sapi.World.AllPlayers;
+            foreach (IPlayer target in players)
+            {
+                if (target.PlayerName != args[0]) continue;
+                
+                IServerPlayer found = (IServerPlayer)target;
+                DeathBehavior behavior = found.Entity.GetBehavior<DeathBehavior>();
+                if (behavior == null) return;
+
+                behavior.DoRespawn();
+
+                msg = "Respawned single player";
+                player.SendMessage(GlobalConstants.AllChatGroups, msg, EnumChatType.Notification);
+                return;
+            }
+
+            player.SendMessage(GlobalConstants.AllChatGroups, msg, EnumChatType.Notification);
+        }
+
+        void CmdRespawn(IServerPlayer player, int groupId, CmdArgs args)
         {
             DeathBehavior behavior = player.Entity.GetBehavior<DeathBehavior>();
 
@@ -211,8 +274,14 @@ namespace dmplayer.src
 
             if (behavior != null)
             {
-                IGameCalendar calendar = player.Entity.Api.World.Calendar;
-                msg = "Real life hours until respawn: " + Math.Round(Util.FromGameTime(calendar, behavior.SpawnTime - calendar.TotalHours), 2);
+                int totalTime = behavior.GetTimeInSeconds();
+                double remainingInSec = behavior.SpawnTime - totalTime;
+                double remainingInMin = Math.Round(remainingInSec / (behavior.secondsInHr / 60), 0);
+                double remainingInHr = Math.Round(remainingInSec / behavior.secondsInHr, 0);
+
+                msg = (remainingInSec < 0) ? 
+                    "Alive or respawning." :
+                    "Time untill respawn:\nIn hours: " + remainingInHr + "\nIn minutes: " + remainingInMin + "\nIn seconds: " + remainingInSec;
             }
 
             player.SendMessage(GlobalConstants.AllChatGroups, msg, EnumChatType.Notification);

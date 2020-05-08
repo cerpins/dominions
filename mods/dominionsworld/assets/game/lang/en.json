@@ -1,5 +1,6 @@
 {
-    "block-water": "Saltwater",
+    "*-saltwater-*": "Saltwater",
+    "*-saltwaterportion": "Portion of saltwater (1 litre)",
 
     "*-wildbeehive-inlog-palm": "Wild beehive in palm tree",
     "*-wildbeehive-inlog-ebony": "Wild beehive in ebony tree",
