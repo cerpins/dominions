@@ -227,25 +227,30 @@
 		],
 		spawnconditions: {
 			worldgen: {
-				group: "hostile",
-				TriesPerChunk: { avg: 0.05, var: 0 },
-				tryOnlySurface: true,
-				minLightLevel: 10,
-				minTemp: 25,
-				maxTemp: 40,
-				minRain: 0.1,
-				maxRain: 0.39
+				"group": "hostile",
+				"TriesPerChunk": {
+					"avg": 0.05,
+					"var": 0
+				},
+				"tryOnlySurface": true,
+				"minLightLevel": 10,
+				"minTemp": 25,
+				"maxTemp": 40,
+				"minRain": 0.1,
+				"maxRain": 0.39,
+				"maxForest": 0.75
 			},
 			runtime: {
-				group: "hostile",
-				tryOnlySurface: true,
-				chance: 0.001,
-				maxQuantity: 2,
-				minLightLevel: 10,
-				minTemp: 25,
-				maxTemp: 40,
-				minRain: 0.1,
-				maxRain: 0.39
+				"group": "hostile",
+				"tryOnlySurface": true,
+				"chance": 0.001,
+				"maxQuantity": 2,
+				"minLightLevel": 10,
+				"minTemp": 25,
+				"maxTemp": 40,
+				"minRain": 0.1,
+				"maxRain": 0.39,
+				"maxForest": 0.75
 			}
 		}
 	},

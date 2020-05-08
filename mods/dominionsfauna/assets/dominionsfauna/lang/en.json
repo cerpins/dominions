@@ -1,5 +1,5 @@
 ﻿{
-	"item-creature-cassowary": "Cassowary",
-	"item-creature-mulegoliath": "Goliath",
-	"item-creature-creodont": "Creodont"
+	"*-cassowary": "Cassowary",
+	"*-mulegoliath": "Goliath",
+	"*-creodont": "Creodont"
 }
