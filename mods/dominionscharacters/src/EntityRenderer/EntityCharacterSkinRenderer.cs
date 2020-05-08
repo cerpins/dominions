@@ -30,6 +30,7 @@ namespace dominions.characters
             api.Event.ReloadTextures += reloadSkin;
 
             this.setShape();
+            this.TesselateShape();
 
             // TEXTURE LISTENER
             string[] skinParts = Core.skinTypes.Keys.ToArray();
@@ -51,10 +52,10 @@ namespace dominions.characters
                     this.setShape();
                     this.TesselateShape();
                 });
-
         }
 
-        bool textureSpaceAllocated = false;
+        private bool textureSpaceAllocated = false;
+
         protected override ITexPositionSource GetTextureSource()
         {
             if (!textureSpaceAllocated)
@@ -92,6 +93,7 @@ namespace dominions.characters
                     scale = 0.65f;
                     this.WindWaveIntensity = 0;
                     break;
+
                 case "human":
                 default:
                     this.WindWaveIntensity = 1;
@@ -174,6 +176,7 @@ namespace dominions.characters
                             );
                         alphaTest = -1f;
                         break;
+
                     case "eyecolor":
                         componentLoc = new AssetLocation(
                             componentPath +
@@ -182,6 +185,7 @@ namespace dominions.characters
                             ".png"
                             );
                         break;
+
                     case "facialhair":
                         componentLoc = new AssetLocation(
                             componentPath +
@@ -192,6 +196,7 @@ namespace dominions.characters
                             ".png"
                             );
                         break;
+
                     case "hairtype":
                         componentLoc = new AssetLocation(
                             componentPath +
@@ -202,6 +207,7 @@ namespace dominions.characters
                             ".png"
                             );
                         break;
+
                     default:
                         componentLoc = new AssetLocation(
                             componentPath +
@@ -298,9 +304,7 @@ namespace dominions.characters
             capi.Render.GlToggleBlend(true);
             capi.Render.BindTexture2d(skinTexPos.atlasTextureId);
             capi.Render.GlGenerateTex2DMipmaps();
-
         }
-
 
         public override void Dispose()
         {
